@@ -141,17 +141,19 @@ dialog.qd textarea{min-height:100px;resize:vertical}
 .intro-hero h1{font-weight:300;font-size:clamp(2.6rem,5.6vw,5rem);line-height:1.02;letter-spacing:-.025em;max-width:16ch;text-wrap:balance}
 .intro-hero p{margin-top:28px;max-width:46ch;font-size:1.2rem;color:var(--mut)}
 
-/* photo carousel */
-.car{position:relative;overflow:hidden;background:#111;height:min(78vh,720px)}
-.car-img{object-fit:cover;opacity:0;transition:opacity .9s ease}
-.car-img.on{opacity:1}
-.dots{position:absolute;left:40px;bottom:28px;display:flex;gap:8px;z-index:2}
+/* photo carousel: 16:9 frame, whole photo always visible (never cropped) */
+.car{position:relative;overflow:hidden;background:#111;aspect-ratio:16/9;max-height:84vh;width:100%}
+.car-slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
+.car-slide.on{opacity:1}
+.car-bg{object-fit:cover;filter:blur(32px) brightness(.65);transform:scale(1.15)}
+.car-img{object-fit:contain}
+.dots{position:absolute;left:40px;bottom:20px;display:flex;gap:8px;z-index:2}
 .dots button{width:28px;height:3px;border:0;padding:0;background:rgba(255,255,255,.5);cursor:pointer}
 .dots button[aria-current="true"]{background:#fff}
-@media (prefers-reduced-motion:reduce){.car-img{transition:none}}
+@media (prefers-reduced-motion:reduce){.car-slide{transition:none}}
 @media (max-width:900px){
   .s-logo img{height:40px}.s-logo{font-size:.9rem;gap:10px}
   .intro-hero{padding:48px 16px 32px}
-  .car{height:60vh}.dots{left:16px;bottom:20px}
+  .dots{left:16px;bottom:12px}
 }
 .photo,.photo.b,.photo.c,.photo.d{background-size:cover,auto,auto;background-position:center,0 0,0 0}

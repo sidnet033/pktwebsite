@@ -5,19 +5,18 @@ import { useEffect, useState } from "react";
 
 // Photos live in public/hero/. Add, remove or reorder entries here.
 const SLIDES = [
-  { src: "/hero/1.jpg", alt: "Compact substation with doors open" },
-  { src: "/hero/2.jpg", alt: "LV switchboard line-up" },
-  { src: "/hero/3.jpg", alt: "Compact substation with oil cooled transformer" },
-  { src: "/hero/4.jpg", alt: "Pai Kane product display" },
-  { src: "/hero/5.jpg", alt: "Oil cooled transformer" },
+  { src: "/hero/1.jpg", alt: "LV switchboard line-up" },
+  { src: "/hero/2.jpg", alt: "Compact substation with doors open" },
+  { src: "/hero/3.jpg", alt: "Pai Kane product display" },
+  { src: "/hero/4.jpg", alt: "Compact substation with oil cooled transformer" },
 ];
 const INTERVAL_MS = 3000;
 
 export function Carousel() {
   const [i, setI] = useState(0);
 
+  // Always auto-advances (also when the visitor's device has "reduce motion" on).
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setInterval(() => setI((x) => (x + 1) % SLIDES.length), INTERVAL_MS);
     return () => clearInterval(t);
   }, []);
@@ -25,16 +24,11 @@ export function Carousel() {
   return (
     <section className="car" aria-roledescription="carousel" aria-label="Pai Kane products">
       {SLIDES.map((s, k) => (
-        <Image
-          key={s.src}
-          src={s.src}
-          alt={s.alt}
-          fill
-          sizes="100vw"
-          priority={k === 0}
-          className={`car-img ${k === i ? "on" : ""}`}
-          aria-hidden={k !== i}
-        />
+        <div key={s.src} className={`car-slide ${k === i ? "on" : ""}`} aria-hidden={k !== i}>
+          {/* blurred copy fills the sides so the whole photo can be shown uncropped */}
+          <Image src={s.src} alt="" fill sizes="100vw" className="car-bg" aria-hidden />
+          <Image src={s.src} alt={s.alt} fill sizes="100vw" priority={k === 0} className="car-img" />
+        </div>
       ))}
       <div className="dots">
         {SLIDES.map((s, k) => (
