@@ -1,6 +1,5 @@
 export const SITE = {
   name: "Pai Kane Transformers LLP",
-  short: "PAI KANE TRANSFORMERS",
   email: "sales@paikane.com",
   groupUrl: "https://paikane.com",
 };

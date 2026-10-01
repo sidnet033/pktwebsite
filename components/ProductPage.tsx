@@ -5,7 +5,7 @@ import { QuoteButton } from "./QuoteDialog";
 export function ProductPage({ p }: { p: Product }) {
   return (
     <>
-      <Hero small photo={p.photo} tone={p.tone} title={p.heroTitle} text={p.heroText}>
+      <Hero small slug={p.slug} photo={p.photo} tone={p.tone} title={p.heroTitle} text={p.heroText}>
         <QuoteButton className="s-btn light" />
       </Hero>
       <section className="s-sec">
