@@ -29,8 +29,9 @@ export async function POST(req: Request) {
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, QUOTE_TO } = process.env;
 
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-    console.log("[quote] SMTP not configured, enquiry logged only:\n" + text);
-    return Response.json({ ok: true });
+    // Nothing is stored or logged: without a mail login the enquiry cannot be delivered.
+    console.error("[quote] SMTP not configured; enquiry not delivered");
+    return Response.json({ error: "mail not configured" }, { status: 503 });
   }
 
   try {
