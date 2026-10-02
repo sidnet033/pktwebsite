@@ -11,7 +11,8 @@ const MILESTONES: [string, string][] = [
   ["2016", "Solray Solutions set up as the group's solar energy arm"],
   ["2018", "Acquires Wardpower (Sheaf Power) in Sheffield, UK"],
   ["2023", "Predictive Edge added for condition monitoring analytics"],
-  ["2026", "Pai Kane Transformers opens, Pai Kane Energy launches next-gen BESS"],
+  ["2024", "Pai Kane Transformers launched"],
+  ["2026", "Pai Kane Energy launches next-gen BESS"],
 ];
 
 export default function About() {
