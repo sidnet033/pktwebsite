@@ -25,6 +25,7 @@ export function PromoBox() {
       /* storage blocked: still show it once for this page view */
     }
     ref.current?.showModal();
+    ref.current?.focus(); // keep focus off the close button so no ring shows on open
     setOpen(true);
   }, [n]);
 
@@ -52,6 +53,7 @@ export function PromoBox() {
     <dialog
       ref={ref}
       className="promo"
+      tabIndex={-1}
       aria-label="Latest news from Pai Kane Transformers"
       onClose={() => setOpen(false)}
       onClick={(e) => e.target === ref.current && ref.current?.close()}
@@ -63,7 +65,9 @@ export function PromoBox() {
           </div>
         ))}
         <button type="button" className="promo-x" aria-label="Close" onClick={() => ref.current?.close()}>
-          ×
+          <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+            <path d="M5 5 19 19M19 5 5 19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" />
+          </svg>
         </button>
         {n > 1 && (
           <>
