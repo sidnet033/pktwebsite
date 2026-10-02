@@ -224,7 +224,7 @@ dialog.qd textarea{min-height:100px;resize:vertical}
 .person{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
 .person b{color:var(--red);font-size:1.1rem;margin-top:8px}
 .person small{color:var(--mut);font-size:.92rem;line-height:1.4;max-width:24ch}
-.avatar{position:relative;border-radius:50%;width:132px;height:132px;background:#e4dcf4;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--red);display:grid;place-items:center;color:var(--red);font-weight:600;font-size:2rem;overflow:hidden}
+.avatar{position:relative;border-radius:50%;width:132px;height:132px;background:#e4dcf4;display:grid;place-items:center;color:var(--red);font-weight:600;font-size:2rem;overflow:hidden}
 .avatar i{position:absolute;inset:0;background:var(--photo) center/cover no-repeat}
 .li{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#0A66C2;color:#fff;margin-top:6px;transition:transform .15s}
 .li:hover{transform:translateY(-2px)}
