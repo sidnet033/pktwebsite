@@ -8,7 +8,7 @@ export default function About() {
   return (
     <>
       <section className="timeline">
-        <Image src="/about/journey.webp" alt="The Pai Kane Group journey: founded in 1971 as a trading business in Goa, manufacturing from 1989, the Tuem factory in 1995, diversification, global expansion and the 2018 acquisition of Sheaf Power Ltd." width={2000} height={821} priority sizes="100vw" />
+        <Image src="/about/timeline.webp" alt="The Pai Kane Group journey, 1971 to 2026: founded as a trading business in 1971, first diesel genset in 1989, Power Engineering (India) incorporated in 1996, Creative Manufacturing Solutions in 2009, Solray Solutions in 2016, Wardpower (Sheaf Power) acquired in 2018, Predictive Edge in 2023, and Pai Kane Transformers opening in 2026. Served in 86+ countries." width={2000} height={838} priority sizes="100vw" />
       </section>
       <section className="s-sec story">
         <h1 className="s-h">A new transformer company. A 35-year foundation.</h1>
