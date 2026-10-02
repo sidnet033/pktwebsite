@@ -68,7 +68,7 @@ export const PRODUCTS: Product[] = [
     name: "LV Switchboards",
     tileSpec: "ABB ArTu K, up to 6,300 A, internal arc and seismic compliant",
     heroTitle: "LV switchboards built on ABB ArTu K.",
-    heroText: "Up to 6,300 A. Internal arc and seismic compliant.",
+    heroText: "Up to 6,300 A. IEC 61439, including internal arc and seismic compliance.",
     photo: "Photo: switchboard line-up",
     tone: "c",
     // TODO(client): confirm ABB wording and test certificates before launch.
