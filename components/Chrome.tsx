@@ -55,11 +55,3 @@ export function Hero({ photo, tone = "", slug, small, title, text, children }: {
     </section>
   );
 }
-
-export function Cta({ title }: { title: string }) {
-  return (
-    <section className="s-cta">
-      <h2>{title}</h2>
-    </section>
-  );
-}

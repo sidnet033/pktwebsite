@@ -24,9 +24,6 @@ export type Product = {
   tone: "" | "b" | "c" | "d";
   glance: [string, string][];
   uses?: [string, string][];
-  sendTitle: string;
-  send: string[];
-  ctaTitle: string;
 };
 
 export const PRODUCTS: Product[] = [
@@ -51,9 +48,6 @@ export const PRODUCTS: Product[] = [
       ["Battery storage", "Transformers for BESS connection."],
       ["Distribution", "Network and industrial supply."],
     ],
-    sendTitle: "Send what you have. We will ask for the rest.",
-    send: ["Rating (kVA or MVA)", "HV and LV voltage", "Vector group and impedance", "Tap changer needs", "Standard (IEC, IS or other)", "Site ambient and altitude", "Quantity and delivery location", "Any special accessories"],
-    ctaTitle: "Need a transformer to spec?",
   },
   {
     slug: "compact-substations",
@@ -68,9 +62,6 @@ export const PRODUCTS: Product[] = [
       ["Uses", "Renewable projects, industry, infrastructure"],
       ["Approach", "Engineered to order around your single line and site."],
     ],
-    sendTitle: "Send the single line, or just the load.",
-    send: ["Single line diagram (if available)", "HV and LV voltage", "Transformer rating", "HV switching: RMU or VCB", "LV outgoing feeders", "Fault level (kA)", "Site conditions and standards", "Quantity and delivery location"],
-    ctaTitle: "Need a substation to spec?",
   },
   {
     slug: "lv-switchboards",
@@ -87,9 +78,6 @@ export const PRODUCTS: Product[] = [
       ["Safety", "Internal arc and seismic compliant"],
       ["Uses", "Main distribution, power control centres, motor control, generator and transformer incomers"],
     ],
-    sendTitle: "Single line diagram or just a load list.",
-    send: ["Single line diagram (if available)", "Incomer and bus rating", "Fault level (kA)", "Outgoing feeders and motor loads", "Form of separation", "Site conditions and standards"],
-    ctaTitle: "Send us your single line.",
   },
   {
     slug: "avrs",
@@ -104,8 +92,5 @@ export const PRODUCTS: Product[] = [
       ["Cooling", "Dry and oil cooled"],
       ["Uses", "Industry, utilities, remote sites"],
     ],
-    sendTitle: "Tell us the supply and the load.",
-    send: ["Rating (kVA)", "Input voltage range", "Required output voltage", "Phase and frequency", "Dry or oil cooled", "Site conditions", "Quantity and delivery location"],
-    ctaTitle: "Need a voltage regulator?",
   },
 ];
