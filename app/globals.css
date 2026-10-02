@@ -43,7 +43,7 @@ img{max-width:100%}
 .s-h{font-weight:300;font-size:1.9rem;line-height:1.1;letter-spacing:-.01em}
 .big2{font-size:2.8rem}
 .mut{color:var(--mut)}.wide{max-width:60ch}.tiny{font-size:.85rem}
-.stack{display:flex;flex-direction:column;gap:14px}.stack .mut{max-width:52ch}
+.stack{display:flex;flex-direction:column;gap:14px}.stack .mut{max-width:62ch}
 .s-intro{display:grid;grid-template-columns:1fr 2.2fr;gap:40px;padding:72px 40px}
 .s-intro .big{font-weight:300;font-size:2.1rem;line-height:1.18;letter-spacing:-.01em;margin-bottom:20px}
 .arrow{font-weight:600;border-bottom:2px solid var(--ink);padding-bottom:2px;display:inline-block;font-size:.9rem;text-decoration:none;align-self:flex-start;width:fit-content}
