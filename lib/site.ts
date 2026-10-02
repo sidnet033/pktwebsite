@@ -1,6 +1,7 @@
 export const SITE = {
   name: "Pai Kane Transformers LLP",
   email: "sales@paikane.com",
+  url: "https://paikanetransformers.com",
   groupUrl: "https://paikane.com",
   linkedin: "https://www.linkedin.com/company/pai-kane-transformers-llp/",
   phone: "+91-83298 68939",
