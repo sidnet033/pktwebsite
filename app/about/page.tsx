@@ -45,7 +45,7 @@ export default function About() {
       <section className="story">
         <div className="story-head">
           <h2 className="s-h">A young transformer company. A 35-year foundation.</h2>
-          <a className="arrow gray" href={SITE.groupUrl}>Visit paikane.com →</a>
+          <a className="arrow gray" href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">Visit paikane.com →</a>
         </div>
         <p className="mut">Pai Kane began in 1971 in Goa as a trading business, founded by the late Mr. Devidas Pai Kane. In 1989, his son Mr. Atul Pai Kane and three colleagues assembled the group&apos;s first diesel generator set in a family garage. That moment turned a trading house into a manufacturer, and it is the start of the 35 years of engineering that stand behind us today.</p>
         <ul className="bul">
@@ -76,7 +76,6 @@ export default function About() {
           <div className="photo d tile" />
         </div>
         {/* TODO(client): plant details */}
-        <p className="mut wide">[ Plant details and how units are built and tested. Only what is in place today. ]</p>
       </section>
     </>
   );

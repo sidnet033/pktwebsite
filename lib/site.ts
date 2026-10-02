@@ -5,6 +5,10 @@ export const SITE = {
   linkedin: "https://www.linkedin.com/company/pai-kane-transformers-llp/",
   phone: "+91-83298 68939",
   phoneHref: "+918329868939",
+  serviceEmail: "productsupport@paikane.com",
+  servicePhone: "+91-93250 05811",
+  servicePhoneHref: "+919325005811",
+  mapsQuery: "58A, Tuem Industrial Estate, Tuem, Pernem, North Goa 403512",
   address: "58A, Tuem Industrial Estate, Tuem, Pernem, North Goa - 403512",
 };
 
