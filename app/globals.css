@@ -197,3 +197,26 @@ dialog.qd textarea{min-height:100px;resize:vertical}
   .vt-text{font-size:1.05rem}
   .vt-facts{grid-template-columns:1fr}
 }
+
+/* about page: timeline (30%) beside the story (70%) */
+.about-split{display:grid;grid-template-columns:30% 1fr;align-items:stretch}
+.about-split .story{padding:64px 40px 64px 56px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.about-split .vt{padding:48px 28px 40px}
+.about-split .vt-bar{width:56px;height:4px;margin-bottom:20px}
+.about-split .vt h1{font-size:clamp(1.5rem,2.2vw,2.1rem)}
+.about-split .vt-sub{font-size:1rem}
+.about-split .vt-list{margin-top:32px}
+.about-split .vt-list::before{left:12px;margin-left:0}
+.about-split .vt-list li{grid-template-columns:1fr;padding:12px 0}
+.about-split .vt-list li::before{left:12px;margin-left:-10px;top:30px;width:20px;height:20px}
+.about-split .vt-list li.now::before{left:12px;margin-left:-13px;top:26px;width:26px;height:26px}
+.about-split .vt-list li.odd .vt-card,.about-split .vt-list li.even .vt-card{grid-column:1;grid-row:auto;padding:0 0 0 40px;text-align:left;align-items:flex-start}
+.about-split .vt-year{font-size:1.7rem}
+.about-split .vt-list li.now .vt-year{font-size:1.4rem;padding:6px 16px}
+.about-split .vt-text{font-size:1rem}
+.about-split .vt-facts{grid-template-columns:1fr;margin-top:24px;font-size:.95rem}
+@media (max-width:900px){
+  .about-split{grid-template-columns:1fr}
+  .about-split .story{padding:40px 16px}
+  .about-split .vt{padding:40px 16px}
+}

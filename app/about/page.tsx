@@ -17,6 +17,7 @@ const MILESTONES: [string, string][] = [
 export default function About() {
   return (
     <>
+      <div className="about-split">
       <section className="vt">
         <div className="vt-in">
           <span className="vt-bar" aria-hidden />
@@ -39,7 +40,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="s-sec story">
+      <section className="story">
         <h2 className="s-h">A new transformer company. A 35-year foundation.</h2>
         <p className="mut">Pai Kane began in 1971 in Goa as a trading business, founded by the late Mr. Devidas Pai Kane. In 1989, his son Mr. Atul Pai Kane and three colleagues assembled the group&apos;s first diesel generator set in a family garage. That moment turned a trading house into a manufacturer, and it is the start of the 35 years of engineering that stand behind us today.</p>
         <ul className="bul">
@@ -51,6 +52,7 @@ export default function About() {
         <p className="mut">Pai Kane Transformers LLP is the next chapter. It brings the group&apos;s people, plant discipline and customer relationships into a business dedicated to transformers and power distribution equipment. It focuses on transformers &amp; compact substations for renewables in India and diverse applications in MENA &amp; Europe.</p>
         <a className="arrow" href={SITE.groupUrl}>Visit paikane.com →</a>
       </section>
+      </div>
       <section className="s-sec grey">
         <div className="lab">Our plant</div>
         <div className="s-tiles three">
