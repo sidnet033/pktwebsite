@@ -11,8 +11,8 @@ export function Header() {
         <span>{SITE.name}</span>
       </Link>
       <nav aria-label="Main">
+        <Link href="/">Home</Link>
         <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
         <QuoteButton />
       </nav>
     </header>
