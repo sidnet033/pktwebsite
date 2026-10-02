@@ -54,8 +54,7 @@ export default function Privacy() {
         </table>
       </div>
       <p>
-        <strong>Google Maps.</strong> The footer shows an embedded Google Map of our factory. Loading it connects your browser to Google, which may set its own cookies under
-        Google&apos;s policies. You can open the map in a new tab instead by clicking its label.
+        <strong>Google Maps.</strong> The footer has a &ldquo;View on Google Maps&rdquo; link. Nothing is loaded from Google until you click it, and it then opens in a new tab under Google&apos;s own policies.
       </p>
       <p>
         <strong>Links to other sites.</strong> Our pages link to LinkedIn and to paikane.com. Those sites have their own privacy policies.
