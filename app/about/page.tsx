@@ -43,7 +43,10 @@ export default function About() {
         </div>
       </section>
       <section className="story">
-        <h2 className="s-h">A young transformer company. A 35-year foundation.</h2>
+        <div className="story-head">
+          <h2 className="s-h">A young transformer company. A 35-year foundation.</h2>
+          <a className="arrow gray" href={SITE.groupUrl}>Visit paikane.com →</a>
+        </div>
         <p className="mut">Pai Kane began in 1971 in Goa as a trading business, founded by the late Mr. Devidas Pai Kane. In 1989, his son Mr. Atul Pai Kane and three colleagues assembled the group&apos;s first diesel generator set in a family garage. That moment turned a trading house into a manufacturer, and it is the start of the 35 years of engineering that stand behind us today.</p>
         <ul className="bul">
           <li>Over the next three decades the group built its own manufacturing facilities for diesel and gas generator sets, in-house sheet metal capabilities, compact substations, low voltage switchboards, transformers, automatic voltage regulators, solar power solutions, BESS and more.</li>
@@ -52,7 +55,6 @@ export default function About() {
         </ul>
         <p className="mut">Today Pai Kane serves customers in more than 60 countries across power utilities, water infrastructure, telecom, railways, airports, data centres, and commercial and residential projects.</p>
         <p className="mut">Pai Kane Transformers LLP is the next chapter. It brings the group&apos;s people, plant discipline and customer relationships into a business dedicated to transformers and power distribution equipment. It focuses on transformers &amp; compact substations for renewables in India and diverse applications in MENA &amp; Europe.</p>
-        <a className="arrow" href={SITE.groupUrl}>Visit paikane.com →</a>
         <div className="team-wrap">
           <div className="lab">Our leadership</div>
           <div className="team">
