@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PRODUCTS, SITE } from "@/lib/site";
+import { CookieSettingsLink } from "./CookieConsent";
 import { NavLinks } from "./NavLinks";
 import { QuoteButton } from "./QuoteDialog";
 
@@ -33,7 +34,7 @@ export function Footer() {
         <span>Open in Google Maps ↗</span>
       </a>
       <div><b>Products</b>{PRODUCTS.map((p) => <Link key={p.slug} href={`/${p.slug}`}>{p.name}</Link>)}</div>
-      <div><b>Company</b><Link href="/about">About</Link><Link href="/certifications">Certifications</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com</a></div>
+      <div><b>Company</b><Link href="/about">About</Link><Link href="/certifications">Certifications</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com</a><CookieSettingsLink /></div>
       <div className="fc">
         <b>Contact</b>
         <p>Sales: <a href={`mailto:${SITE.email}`}>{SITE.email}</a> | <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
