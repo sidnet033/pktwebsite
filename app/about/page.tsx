@@ -17,23 +17,27 @@ const MILESTONES: [string, string][] = [
 export default function About() {
   return (
     <>
-      <section className="s-sec vt">
-        <div className="lab">Our journey</div>
-        <h1 className="s-h">From humble beginnings to 86+ countries</h1>
-        <p className="mut">The Pai Kane Group journey, 1971 to 2026</p>
-        <ol className="vt-list">
-          {MILESTONES.map(([year, text], i) => (
-            <li key={year} className={i === MILESTONES.length - 1 ? "now" : ""}>
-              <span className="vt-year">{year}</span>
-              <span className="vt-text">{text}</span>
-            </li>
-          ))}
-        </ol>
-        <dl className="vt-facts">
-          <div><dt>86+</dt><dd>countries served</dd></div>
-          <div><dt>Facilities</dt><dd>Goa, Maharashtra and the UK</dd></div>
-          <div><dt>Offices</dt><dd>India | Dubai | UK | Portugal | China</dd></div>
-        </dl>
+      <section className="vt">
+        <div className="vt-in">
+          <span className="vt-bar" aria-hidden />
+          <h1>From humble beginnings to 86+ countries</h1>
+          <p className="vt-sub">The Pai Kane Group journey, 1971 to 2026</p>
+          <ol className="vt-list">
+            {MILESTONES.map(([year, text], i) => (
+              <li key={year} className={`${i % 2 ? "even" : "odd"} ${i === MILESTONES.length - 1 ? "now" : ""}`}>
+                <div className="vt-card">
+                  <span className="vt-year">{year}</span>
+                  <span className="vt-text">{text}</span>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="vt-facts">
+            <p><b>86+</b> countries served</p>
+            <p>Facilities in <b>Goa, Maharashtra and the UK</b></p>
+            <p>Offices: <b>India | Dubai | UK | Portugal | China</b></p>
+          </div>
+        </div>
       </section>
       <section className="s-sec story">
         <h2 className="s-h">A new transformer company. A 35-year foundation.</h2>
