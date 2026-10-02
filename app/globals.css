@@ -218,24 +218,15 @@ dialog.qd textarea{min-height:100px;resize:vertical}
   .about-split .vt{padding:40px 16px}
 }
 
-/* leadership: nested soft bubbles instead of lines */
-.org2{margin-top:40px;display:flex;flex-direction:column;gap:16px}
-.bub{border-radius:32px;padding:20px;background:#fff;border:1px solid #e6e1f0;box-shadow:0 6px 24px rgba(37,9,82,.06);display:flex;flex-direction:column;align-items:center;gap:16px}
-.bub.chair{background:linear-gradient(160deg,#f1ecfa,#f9f7fd);border:1px solid #ddd3f0;border-radius:44px;padding:28px}
-.bub.lead{background:#f7f4fc;border-radius:36px;flex:2.6}
-.bub-row{display:flex;gap:16px;width:100%;align-items:center;justify-content:center}
-.bub-row>.bub{flex:1}
-.bub-row.small{gap:12px;align-items:stretch}
-.bub-row.small .bub{border-radius:28px;padding:14px}
-.person{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;max-width:220px}
-.person b{color:var(--red);font-size:1.05rem}
-.person small{color:var(--mut);font-size:.88rem;line-height:1.35}
-.avatar{position:relative;border-radius:50%;width:96px;height:96px;background:#e4dcf4;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--red);display:grid;place-items:center;color:var(--red);font-weight:600;font-size:1.6rem;overflow:hidden}
+/* leadership: people grid */
+.team-wrap{margin-top:40px;display:flex;flex-direction:column;gap:24px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 24px}
+.person{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.person b{color:var(--red);font-size:1.1rem;margin-top:8px}
+.person small{color:var(--mut);font-size:.92rem;line-height:1.4;max-width:24ch}
+.avatar{position:relative;border-radius:50%;width:132px;height:132px;background:#e4dcf4;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--red);display:grid;place-items:center;color:var(--red);font-weight:600;font-size:2rem;overflow:hidden}
 .avatar i{position:absolute;inset:0;background:var(--photo) center/cover no-repeat}
-.person.lg .avatar{width:128px;height:128px;font-size:2.1rem;box-shadow:0 0 0 4px #fff,0 0 0 7px #E8912D}
-.person.sm .avatar{width:72px;height:72px;font-size:1.2rem}
-.person.sm b{font-size:.95rem}.person.sm small{font-size:.8rem}
-@media (max-width:900px){
-  .bub-row{flex-direction:column;align-items:stretch}
-  .bub.chair{padding:20px 14px}
-}
+.li{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#0A66C2;color:#fff;margin-top:6px;transition:transform .15s}
+.li:hover{transform:translateY(-2px)}
+@media (max-width:900px){.team{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.team{grid-template-columns:1fr}}
