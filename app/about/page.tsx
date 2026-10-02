@@ -1,17 +1,42 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = { title: "About" };
 
+const MILESTONES: [string, string][] = [
+  ["1971", "Founded as a trading business by the late Devidas Pai Kane"],
+  ["1989", "First diesel genset assembled"],
+  ["1996", "Power Engineering (India) Pvt Ltd incorporated as the group's flagship"],
+  ["2009", "Creative Manufacturing Solutions added for contract manufacturing"],
+  ["2016", "Solray Solutions set up as the group's solar energy arm"],
+  ["2018", "Acquires Wardpower (Sheaf Power) in Sheffield, UK"],
+  ["2023", "Predictive Edge added for condition monitoring analytics"],
+  ["2026", "Pai Kane Transformers opens, Pai Kane Energy launches next-gen BESS"],
+];
+
 export default function About() {
   return (
     <>
-      <section className="timeline">
-        <Image src="/about/timeline.webp" alt="The Pai Kane Group journey, 1971 to 2026: founded as a trading business in 1971, first diesel genset in 1989, Power Engineering (India) incorporated in 1996, Creative Manufacturing Solutions in 2009, Solray Solutions in 2016, Wardpower (Sheaf Power) acquired in 2018, Predictive Edge in 2023, and Pai Kane Transformers opening in 2026. Served in 86+ countries." width={2000} height={838} priority sizes="100vw" />
+      <section className="s-sec vt">
+        <div className="lab">Our journey</div>
+        <h1 className="s-h">From humble beginnings to 86+ countries</h1>
+        <p className="mut">The Pai Kane Group journey, 1971 to 2026</p>
+        <ol className="vt-list">
+          {MILESTONES.map(([year, text], i) => (
+            <li key={year} className={i === MILESTONES.length - 1 ? "now" : ""}>
+              <span className="vt-year">{year}</span>
+              <span className="vt-text">{text}</span>
+            </li>
+          ))}
+        </ol>
+        <dl className="vt-facts">
+          <div><dt>86+</dt><dd>countries served</dd></div>
+          <div><dt>Facilities</dt><dd>Goa, Maharashtra and the UK</dd></div>
+          <div><dt>Offices</dt><dd>India | Dubai | UK | Portugal | China</dd></div>
+        </dl>
       </section>
       <section className="s-sec story">
-        <h1 className="s-h">A new transformer company. A 35-year foundation.</h1>
+        <h2 className="s-h">A new transformer company. A 35-year foundation.</h2>
         <p className="mut">Pai Kane began in 1971 in Goa as a trading business, founded by the late Mr. Devidas Pai Kane. In 1989, his son Mr. Atul Pai Kane and three colleagues assembled the group&apos;s first diesel generator set in a family garage. That moment turned a trading house into a manufacturer, and it is the start of the 35 years of engineering that stand behind us today.</p>
         <ul className="bul">
           <li>Over the next three decades the group built its own manufacturing facilities for diesel and gas generator sets, in-house sheet metal capabilities, compact substations, low voltage switchboards, transformers, automatic voltage regulators, solar power solutions, BESS and more.</li>
