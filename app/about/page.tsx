@@ -42,7 +42,7 @@ export default function About() {
         </div>
       </section>
       <section className="story">
-        <h2 className="s-h">A new transformer company. A 35-year foundation.</h2>
+        <h2 className="s-h">A young transformer company. A 35-year foundation.</h2>
         <p className="mut">Pai Kane began in 1971 in Goa as a trading business, founded by the late Mr. Devidas Pai Kane. In 1989, his son Mr. Atul Pai Kane and three colleagues assembled the group&apos;s first diesel generator set in a family garage. That moment turned a trading house into a manufacturer, and it is the start of the 35 years of engineering that stand behind us today.</p>
         <ul className="bul">
           <li>Over the next three decades the group built its own manufacturing facilities for diesel and gas generator sets, in-house sheet metal capabilities, compact substations, low voltage switchboards, transformers, automatic voltage regulators, solar power solutions, BESS and more.</li>
