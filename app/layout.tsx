@@ -3,7 +3,9 @@ import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
 import { Footer, Header } from "@/components/Chrome";
+import { CookieConsent } from "@/components/CookieConsent";
 import { QuoteProvider } from "@/components/QuoteDialog";
+import { CONSENT_DAYS, CONSENT_KEY } from "@/lib/consent";
 import { SITE } from "@/lib/site";
 
 const hanken = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-name", display: "swap" });
@@ -23,6 +25,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={hanken.variable}>
       <head>
+        {/* Google Consent Mode: analytics storage is OFF until the visitor accepts (or accepted before). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var c=null;try{c=JSON.parse(localStorage.getItem('${CONSENT_KEY}'))}catch(e){}var a=c&&c.v==='granted'&&Date.now()-c.t<${CONSENT_DAYS * 864e5}?'granted':'denied';gtag('consent','default',{analytics_storage:a,ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});`,
+          }}
+        />
         {GTM && (
           <script
             dangerouslySetInnerHTML={{
@@ -41,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main>{children}</main>
           <Footer />
+          <CookieConsent />
         </QuoteProvider>
       </body>
     </html>
