@@ -13,12 +13,16 @@ img{max-width:100%}
 .s-top nav{margin-left:auto;display:flex;gap:28px;align-items:center;font-size:.9rem}
 .s-top nav a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
 .s-top nav a.active{border-bottom-color:#0E2A47}
-.menu{position:relative}
-.menu summary{cursor:pointer;list-style:none}
-.menu summary::-webkit-details-marker{display:none}
-.menu>div{position:absolute;top:100%;left:-14px;margin-top:14px;background:#fff;border:1px solid var(--line);min-width:220px;z-index:10;display:flex;flex-direction:column}
-.menu>div a{padding:11px 14px;border-bottom:1px solid var(--line)}
-.menu>div a:last-child{border:0}
+.dd{position:relative}
+.dd-btn{font:inherit;color:inherit;background:none;border:0;border-bottom:2px solid transparent;padding:6px 0;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.dd-btn span{font-size:.7rem}
+.dd-btn.active{border-bottom-color:#0E2A47}
+.dd-menu{position:absolute;top:100%;left:-16px;padding-top:12px;z-index:20}
+.dd-menu::before{content:"";position:absolute;left:0;right:0;top:12px;bottom:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 40px rgba(14,42,71,.16)}
+.s-top nav .dd-menu a{position:relative;display:block;white-space:nowrap;padding:12px 24px;border-bottom:0}
+.s-top nav .dd-menu a:first-child{padding-top:16px}.s-top nav .dd-menu a:last-child{padding-bottom:16px}
+.s-top nav .dd-menu a:hover{color:#0E2A47;font-weight:600}
+.s-top nav .dd-menu a[aria-current="page"]{font-weight:600}
 .s-btn{background:#0E2A47;color:#fff;border:0;padding:12px 22px;font:600 .85rem var(--sans);cursor:pointer;border-radius:0;display:inline-block;text-decoration:none}
 .s-btn.light{background:#fff;color:#0E2A47}
 .s-btn.line{background:transparent;color:#fff;border:1px solid #fff}
@@ -108,16 +112,17 @@ img{max-width:100%}
 
 dialog.qd{border:0;border-radius:22px;overflow:hidden;box-shadow:0 24px 70px rgba(20,8,50,.35);padding:0;width:min(480px,calc(100vw - 32px));font:400 15px/1.5 var(--sans);color:var(--ink)}
 dialog.qd::backdrop{background:rgba(0,0,0,.6)}
-.dl-head{display:flex;justify-content:space-between;align-items:flex-start;padding:24px 26px 0;gap:12px}
+.dl-head{display:flex;justify-content:space-between;align-items:flex-start;padding:20px 26px 0;gap:12px}
 .dl-head h3{font-size:1.7rem;font-weight:300}
 .dl-x{border:0;border-radius:50%;width:36px;height:36px;background:transparent;color:#666;font-size:1.6rem;line-height:1;cursor:pointer;padding:0 4px}
-dialog.qd form{display:flex;flex-direction:column;gap:14px;padding:16px 26px 26px}
-dialog.qd label{display:flex;flex-direction:column;gap:5px;font:600 .8rem var(--sans)}
-dialog.qd input,dialog.qd textarea,dialog.qd select{font:400 .95rem var(--sans);padding:12px 14px;border:1px solid #d5d1de;border-radius:12px;width:100%;background:#fff}
+dialog.qd form{display:flex;flex-direction:column;gap:10px;padding:12px 26px 22px}
+dialog.qd label{display:flex;flex-direction:column;gap:4px;font:600 .8rem var(--sans)}
+dialog.qd input,dialog.qd textarea,dialog.qd select{font:400 .95rem var(--sans);padding:10px 14px;border:1px solid #d5d1de;border-radius:12px;width:100%;background:#fff}
 dialog.qd input:focus,dialog.qd textarea:focus,dialog.qd select:focus{border-color:var(--red);outline:2px solid rgba(37,9,82,.18);outline-offset:0}
-dialog.qd textarea{min-height:100px;resize:vertical}
+dialog.qd textarea{min-height:76px;resize:vertical}
 .hp{position:absolute!important;left:-9999px;width:1px!important;height:1px!important}
-.err{color:var(--red);font:500 .75rem var(--sans);min-height:1em}
+.err{color:var(--red);font:500 .75rem var(--sans)}
+.err:empty{display:none}
 .dl-note{font-size:.8rem;color:#666}
 .dl-ok{padding:28px 26px;display:flex;flex-direction:column;gap:12px}
 .dl-ok h3{font-size:1.7rem;font-weight:300}

@@ -75,8 +75,9 @@ export const PRODUCTS: Product[] = [
     glance: [
       ["Current", "Up to 6,300 A"],
       ["System", "ABB ArTu K"],
-      ["Safety", "Internal arc and seismic compliant"],
-      ["Uses", "Main distribution, power control centres, motor control, generator and transformer incomers"],
+      ["Safety", "IEC 61439, including internal arc and seismic compliance"],
+      ["Uses", "MCC, PCC, DG Sync, PLC, VFD & many other types of switchboards"],
+      ["Expertise", "7 years as ABB ArTuK OEM with solutions delivered across multiple countries using ABB Switchgear"],
     ],
   },
   {
