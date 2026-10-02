@@ -25,14 +25,15 @@ export function Footer() {
       <div className="fb">
         <b>{SITE.name}</b>
         {SITE.address}
+        <br />GSTIN: {SITE.gstin}
         <br />© {new Date().getFullYear()} {SITE.name}
-        <a className="map" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer" aria-label="Open our location in Google Maps">
-          <iframe src={`https://www.google.com/maps?q=${SITE.mapsLatLng}&z=16&output=embed`} title="Map of the Pai Kane Transformers LLP factory" loading="lazy" referrerPolicy="no-referrer-when-downgrade" tabIndex={-1} />
-          <span>Open in Google Maps ↗</span>
-        </a>
       </div>
+      <a className="map" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer" aria-label="Open our location in Google Maps">
+        <iframe src={`https://www.google.com/maps?q=${SITE.mapsLatLng}&z=16&output=embed`} title="Map of the Pai Kane Transformers LLP factory" loading="lazy" referrerPolicy="no-referrer-when-downgrade" tabIndex={-1} />
+        <span>Open in Google Maps ↗</span>
+      </a>
       <div><b>Products</b>{PRODUCTS.map((p) => <Link key={p.slug} href={`/${p.slug}`}>{p.name}</Link>)}</div>
-      <div><b>Company</b><Link href="/about">About</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com</a></div>
+      <div><b>Company</b><Link href="/about">About</Link><Link href="/certifications">Certifications</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com</a></div>
       <div className="fc">
         <b>Contact</b>
         <p>Sales: <a href={`mailto:${SITE.email}`}>{SITE.email}</a> | <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
