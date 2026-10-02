@@ -11,6 +11,7 @@ type Errs = Partial<Record<"name" | "email" | "mobile" | "country" | "requiremen
 export function QuoteProvider({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [state, setState] = useState<"form" | "sending" | "done" | "fail">("form");
+  const [detail, setDetail] = useState("");
   const [errs, setErrs] = useState<Errs>({});
 
   const open = () => {
@@ -34,8 +35,15 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
     setState("sending");
     try {
       const r = await fetch("/api/quote", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(v) });
-      setState(r.ok ? "done" : "fail");
+      if (r.ok) {
+        setState("done");
+      } else {
+        const j = await r.json().catch(() => ({}));
+        setDetail(typeof j.detail === "string" ? j.detail : "");
+        setState("fail");
+      }
     } catch {
+      setDetail("");
       setState("fail");
     }
   }
@@ -74,7 +82,12 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
               <label>Your requirement *<textarea name="requirement" placeholder="Product, rating, voltage, quantity, delivery location" /><span className="err">{errs.requirement}</span></label>
               <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp" />
               <button className="dl-btn" type="submit" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Send enquiry"}</button>
-              {state === "fail" && <p className="err" role="alert">Something went wrong. Please email sales@paikane.com directly.</p>}
+              {state === "fail" && (
+                <div className="err" role="alert">
+                  <p>Something went wrong. Please email sales@paikane.com directly.</p>
+                  {detail && <pre className="err-detail">{detail}</pre>}
+                </div>
+              )}
             </form>
           </>
         )}
