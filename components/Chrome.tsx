@@ -20,15 +20,14 @@ export function Header() {
 }
 
 export function Footer() {
-  const q = encodeURIComponent(SITE.mapsQuery);
   return (
     <footer className="s-foot">
       <div className="fb">
         <b>{SITE.name}</b>
         {SITE.address}
         <br />© {new Date().getFullYear()} {SITE.name}
-        <a className="map" href={`https://www.google.com/maps/search/?api=1&query=${q}`} target="_blank" rel="noopener noreferrer" aria-label="Open our location in Google Maps">
-          <iframe src={`https://www.google.com/maps?q=${q}&output=embed`} title="Map of the Pai Kane Transformers LLP factory" loading="lazy" referrerPolicy="no-referrer-when-downgrade" tabIndex={-1} />
+        <a className="map" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer" aria-label="Open our location in Google Maps">
+          <iframe src={`https://www.google.com/maps?q=${SITE.mapsLatLng}&z=16&output=embed`} title="Map of the Pai Kane Transformers LLP factory" loading="lazy" referrerPolicy="no-referrer-when-downgrade" tabIndex={-1} />
           <span>Open in Google Maps ↗</span>
         </a>
       </div>
