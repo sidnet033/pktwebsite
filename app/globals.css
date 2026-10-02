@@ -35,10 +35,12 @@ img{max-width:100%}
 /* Photo placeholders: remove the label and set background-image once real photos exist */
 
 .s-hero{min-height:500px;display:flex;align-items:flex-end}
-.s-hero.sm{min-height:360px}
+.s-hero.sm{min-height:180px}
+.s-hero.sm .in{padding:28px 40px;max-width:1100px}
 .s-hero .in{padding:48px 40px;max-width:860px}
 .s-hero h1{font-weight:300;font-size:3.5rem;line-height:1.03;margin:0 0 18px;letter-spacing:-.015em;text-wrap:balance}
-.s-hero.sm h1{font-size:2.8rem}
+.s-hero.sm h1{font-size:2.3rem;margin-bottom:10px}
+.s-hero.sm p{margin-bottom:0}
 .s-hero p{max-width:52ch;color:#e4e8eb;margin:0 0 24px;font-size:1.05rem}
 .s-hero .row{display:flex;gap:10px;flex-wrap:wrap}
 .s-sec{padding:64px 40px;display:flex;flex-direction:column;gap:28px}
@@ -136,6 +138,7 @@ dialog.qd textarea{min-height:76px;resize:vertical}
   .s-hero{min-height:360px}
   .s-hero .in{padding:32px 16px}
   .s-hero h1,.s-hero.sm h1{font-size:2rem}
+  .s-hero.sm{min-height:180px}.s-hero.sm .in{padding:24px 16px}.s-hero.sm h1{font-size:1.6rem}
   .s-sec,.s-intro,.s-group,.s-cta,.s-foot{padding-inline:16px}
   .s-sec{padding-block:40px}
   .s-intro,.s-group,.s-cols,.s-cols.four,.s-cols.two,.s-foot,.chk,.s-tiles,.s-tiles.three,.dlr{grid-template-columns:1fr}

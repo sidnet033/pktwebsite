@@ -68,15 +68,6 @@ export default function About() {
         </div>
       </section>
       </div>
-      <section className="s-sec grey">
-        <div className="lab">Our plant</div>
-        <div className="s-tiles three">
-          <div className="photo tile" />
-          <div className="photo b tile" />
-          <div className="photo d tile" />
-        </div>
-        {/* TODO(client): plant details */}
-      </section>
     </>
   );
 }
