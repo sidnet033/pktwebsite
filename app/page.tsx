@@ -1,4 +1,5 @@
 import { Carousel } from "@/components/Carousel";
+import { PromoBox } from "@/components/PromoBox";
 import Link from "next/link";
 
 const NUMS = [
@@ -11,6 +12,7 @@ const NUMS = [
 export default function Home() {
   return (
     <>
+      <PromoBox />
       <section className="intro-hero">
         <h1>Power equipment, engineered to your specification.</h1>
         <p>Oil cooled transformers, compact substations, LV switchboards and AVRs, made in Goa.</p>
