@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export type Slide = { src: string; alt: string };
+export type Slide = { src: string; alt: string; caption?: string };
 
 // Home page photos live in public/hero/. Add, remove or reorder entries here.
 const HOME_SLIDES: Slide[] = [
@@ -36,6 +36,7 @@ export function Carousel({ slides = HOME_SLIDES, intervalMs = 3000, className = 
       {slides.map((s, k) => (
         <div key={s.src} className={`car-slide ${k === cur ? "on" : k === prev ? "out" : "wait"}`} aria-hidden={k !== cur}>
           <Image src={s.src} alt={s.alt} fill sizes="100vw" priority={k === 0} className="car-img" />
+          {s.caption && <div className="car-cap">{s.caption}</div>}
         </div>
       ))}
     </section>

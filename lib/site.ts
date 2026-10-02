@@ -24,6 +24,8 @@ export type Product = {
   tone: "" | "b" | "c" | "d";
   glance: [string, string][];
   uses?: [string, string][];
+  /** Optional banner text shown along the bottom of a carousel photo, keyed by filename. */
+  captions?: Record<string, string>;
 };
 
 export const PRODUCTS: Product[] = [
@@ -35,6 +37,7 @@ export const PRODUCTS: Product[] = [
     heroText: "Oil cooled, up to 20 MVA and 33 kV, engineered to your specification.",
     photo: "Photo: oil cooled transformer, solar plant",
     tone: "",
+    captions: { "1.jpg": "2.7MA BESS", "2.jpg": "1MVA IDT ECO TIER2 LOSSES", "3.jpg": "Factory Shopfloor" },
     glance: [
       ["Rating", "Up to 20 MVA"],
       ["Voltage class", "Up to 33 kV"],

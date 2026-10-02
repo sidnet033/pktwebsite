@@ -12,7 +12,7 @@ function productSlides(p: Product): Slide[] {
       .readdirSync(dir)
       .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
       .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-      .map((f, i) => ({ src: `/products/${p.slug}/${f}`, alt: `${p.name} photo ${i + 1}` }));
+      .map((f, i) => ({ src: `/products/${p.slug}/${f}`, alt: p.captions?.[f] ?? `${p.name} photo ${i + 1}`, caption: p.captions?.[f] }));
   } catch {
     return [];
   }
