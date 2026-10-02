@@ -36,11 +36,6 @@ export function Carousel() {
           <Image src={s.src} alt={s.alt} fill sizes="100vw" priority={k === 0} className="car-img" />
         </div>
       ))}
-      <div className="dots">
-        {SLIDES.map((s, k) => (
-          <button key={s.src} type="button" aria-label={`Show photo ${k + 1}`} aria-current={k === cur} onClick={() => go(k)} />
-        ))}
-      </div>
     </section>
   );
 }

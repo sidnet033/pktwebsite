@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Person } from "@/components/Person";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = { title: "About" };
@@ -52,6 +53,31 @@ export default function About() {
         <p className="mut">Today Pai Kane serves customers in more than 60 countries across power utilities, water infrastructure, telecom, railways, airports, data centres, and commercial and residential projects.</p>
         <p className="mut">Pai Kane Transformers LLP is the next chapter. It brings the group&apos;s people, plant discipline and customer relationships into a business dedicated to transformers and power distribution equipment. It focuses on transformers &amp; compact substations for renewables in India and diverse applications in MENA &amp; Europe.</p>
         <a className="arrow" href={SITE.groupUrl}>Visit paikane.com →</a>
+        <div className="org2">
+          <div className="lab">Our leadership</div>
+          <div className="bub chair">
+            <Person slug="atul-pai-kane" name="Atul Pai Kane" role="Chairman, Pai Kane Group of Companies" size="lg" />
+            <div className="bub-row">
+              <div className="bub lead">
+                <Person slug="siddharth-naik" name="Siddharth Naik" role="Designated Partner, Pai Kane Transformers" />
+                <div className="bub-row small">
+                  <div className="bub">
+                    <Person slug="ramnath-moye" name="Ramnath Moye" role="Operations Head, Transformers" size="sm" />
+                  </div>
+                  <div className="bub">
+                    <Person slug="hariom-tiwari" name="Hariom Tiwari" role="Operations Head, Switchboards, AVR & CSS" size="sm" />
+                  </div>
+                </div>
+              </div>
+              <div className="bub">
+                <Person slug="sunil-pai-kane" name="Sunil Pai Kane" role="Group CFO" />
+              </div>
+              <div className="bub">
+                <Person slug="orlene-dsouza" name="Orlene Dsouza" role="Group HR" />
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       </div>
       <section className="s-sec grey">

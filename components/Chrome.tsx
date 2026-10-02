@@ -7,7 +7,7 @@ export function Header() {
   return (
     <header className="s-top">
       <Link href="/" className="s-logo" aria-label={SITE.name}>
-        <Image src="/logo.png" alt="" width={480} height={513} priority />
+        <Image src="/logo.png" alt="" width={640} height={557} priority />
         <span>{SITE.name}</span>
       </Link>
       <nav aria-label="Main">
@@ -25,7 +25,7 @@ export function Footer() {
       <div className="fb"><b>{SITE.name}</b>{SITE.address}<br />A Pai Kane Group company</div>
       <div><b>Products</b>{PRODUCTS.map((p) => <Link key={p.slug} href={`/${p.slug}`}>{p.name}</Link>)}</div>
       <div><b>Company</b><Link href="/about">About</Link><Link href="/contact">Contact</Link><a href={SITE.groupUrl}>paikane.com</a></div>
-      <div><b>Contact</b><a href={`mailto:${SITE.email}`}>{SITE.email}</a><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></div>
+      <div><b>Contact</b><a href={`mailto:${SITE.email}`}>{SITE.email}</a><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a><a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
       <p className="legal">© {new Date().getFullYear()} {SITE.name}</p>
     </footer>
   );
