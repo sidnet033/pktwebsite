@@ -65,8 +65,8 @@ export function PromoBox() {
           </div>
         ))}
         <button type="button" className="promo-x" aria-label="Close" onClick={() => ref.current?.close()}>
-          <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
-            <path d="M5 5 19 19M19 5 5 19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" />
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path d="M5 5 19 19M19 5 5 19" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" fill="none" />
           </svg>
         </button>
         {n > 1 && (

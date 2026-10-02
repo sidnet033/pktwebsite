@@ -285,7 +285,7 @@ dialog.promo::backdrop{background:rgba(8,20,38,.62)}
 .promo-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
 .promo-slide.on{opacity:1}
 .promo-img{object-fit:contain}
-.promo-x{position:absolute;top:8px;right:8px;z-index:3;width:42px;height:42px;display:grid;place-items:center;border:0;padding:0;background:transparent;color:#fff;mix-blend-mode:difference;cursor:pointer}
+.promo-x{position:absolute;top:0;right:0;z-index:3;width:34px;height:34px;display:grid;place-items:center;border:0;padding:0;background:transparent;color:#fff;mix-blend-mode:difference;cursor:pointer}
 .promo-x:hover{transform:scale(1.15)}
 .promo-x:focus-visible{outline:2px solid currentColor;outline-offset:-4px;border-radius:50%}
 dialog.promo:focus{outline:none}
