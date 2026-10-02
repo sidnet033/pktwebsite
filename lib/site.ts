@@ -60,7 +60,8 @@ export const PRODUCTS: Product[] = [
     glance: [
       ["Sections", "LV panel, MV with transformer, HV with RMU or VCB"],
       ["Uses", "Renewable projects, industry, infrastructure"],
-      ["Approach", "Engineered to order around your single line and site."],
+      ["Certifications", "CE certified for Europe. Approved in Indian bodies as well."],
+      ["Approach", "Made to your spec"],
     ],
   },
   {
