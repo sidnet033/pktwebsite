@@ -43,7 +43,9 @@ export const PRODUCTS: Product[] = [
       ["Voltage class", "Up to 33 kV"],
       ["Cooling", "Oil cooled"],
       ["Applications", "Solar plants, wind farms, battery energy storage, distribution networks"],
-      ["Approach", "Engineered to order. We design each unit around your specification."],
+      ["Certifications", "CE certified for Europe. Approved in Indian bodies as well."],
+      ["Approach", "Made to your spec"],
+      ["Expertise", "We specialize in IDT transformers for renewables & distribution transformers, with a focus on export geographies. We also contract manufacture to your brand"],
     ],
     uses: [
       ["Solar", "Step-up transformers for inverter output."],
