@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Carousel } from "@/components/Carousel";
 import { Cta } from "@/components/Chrome";
 import { SITE } from "@/lib/site";
@@ -18,24 +17,9 @@ export default function Home() {
         <p>Oil cooled transformers, compact substations, LV switchboards and AVRs, made in Goa.</p>
       </section>
       <Carousel />
-      <section className="s-intro">
-        <div className="lab">Who we are</div>
-        <div>
-          <p className="big">A new company with the engineering of a 35-year-old group behind it.</p>
-          <Link href="/about" className="arrow">About us →</Link>
-        </div>
-      </section>
-      <section className="s-sec nopt">
+      <section className="s-sec">
         <div className="lab">Our range</div>
         <div className="s-nums">{NUMS.map(([n, l]) => <div key={n}><strong>{n}</strong><span>{l}</span></div>)}</div>
-      </section>
-      <section className="s-sec grey steps">
-        <div className="lab">How we quote</div>
-        <div className="s-cols">
-          <div><b>Step 1</b><h3>Tell us what you need</h3><p>Send rating, voltage, quantity and site. Rough details are fine.</p></div>
-          <div><b>Step 2</b><h3>Our engineers review</h3><p>We check the requirement and come back with any questions.</p></div>
-          <div><b>Step 3</b><h3>Quote to your spec</h3><p>You get a priced offer built around your specification.</p></div>
-        </div>
       </section>
       <section className="s-group">
         <div className="n">35</div>

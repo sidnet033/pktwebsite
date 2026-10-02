@@ -34,8 +34,8 @@ export default function Contact() {
       </div>
       <p className="mut tiny">Names and roles are placeholders until the real structure is supplied.</p>
       <div className="s-cols two">
-        <div><h3>Sales enquiries</h3><p><a href={`mailto:${SITE.email}`}>{SITE.email}</a> · [ phone ] · [ WhatsApp ]</p><QuoteButton className="s-btn self" /></div>
-        <div><h3>Office and factory</h3><p>{SITE.name}<br />[ address ], Goa, India</p></div>
+        <div><h3>Sales enquiries</h3><p><a href={`mailto:${SITE.email}`}>{SITE.email}</a> · <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p><QuoteButton className="s-btn self" /></div>
+        <div><h3>Office and factory</h3><p>{SITE.name}<br />{SITE.address}</p></div>
       </div>
     </section>
   );

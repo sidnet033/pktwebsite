@@ -2,6 +2,9 @@ export const SITE = {
   name: "Pai Kane Transformers LLP",
   email: "sales@paikane.com",
   groupUrl: "https://paikane.com",
+  phone: "+91-83298 68939",
+  phoneHref: "+918329868939",
+  address: "58A, Tuem Industrial Estate, Tuem, Pernem, North Goa - 403512",
 };
 
 export type Product = {

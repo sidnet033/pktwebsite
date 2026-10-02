@@ -22,10 +22,10 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="s-foot">
-      <div className="fb"><b>{SITE.name}</b>[ address ], Goa, India<br />A Pai Kane Group company</div>
+      <div className="fb"><b>{SITE.name}</b>{SITE.address}<br />A Pai Kane Group company</div>
       <div><b>Products</b>{PRODUCTS.map((p) => <Link key={p.slug} href={`/${p.slug}`}>{p.name}</Link>)}</div>
       <div><b>Company</b><Link href="/about">About</Link><Link href="/contact">Contact</Link><a href={SITE.groupUrl}>paikane.com</a></div>
-      <div><b>Contact</b><a href={`mailto:${SITE.email}`}>{SITE.email}</a>[ phone ]</div>
+      <div><b>Contact</b><a href={`mailto:${SITE.email}`}>{SITE.email}</a><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></div>
       <p className="legal">© {new Date().getFullYear()} {SITE.name}</p>
     </footer>
   );
@@ -47,7 +47,6 @@ export function Cta({ title }: { title: string }) {
   return (
     <section className="s-cta">
       <h2>{title}</h2>
-      <QuoteButton className="s-btn light" />
     </section>
   );
 }
