@@ -159,3 +159,11 @@ dialog.qd textarea{min-height:100px;resize:vertical}
   .dots{left:16px;bottom:12px}
 }
 .photo,.photo.b,.photo.c,.photo.d{background-size:cover,auto,auto;background-position:center,0 0,0 0}
+
+/* about page */
+.timeline{background:#f6f1e4}
+.timeline img{display:block;width:100%;height:auto}
+.story .s-h{font-size:clamp(1.8rem,3.4vw,2.8rem)}
+.story .mut{max-width:none;font-size:1.1rem}
+.bul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:10px;color:var(--mut);font-size:1.1rem}
+.bul li::marker{color:var(--red)}
