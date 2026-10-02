@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CONSENT_DAYS, CONSENT_EVENT, CONSENT_KEY } from "@/lib/consent";
 
@@ -56,7 +57,7 @@ export function CookieConsent() {
   return (
     <div className="cookie" role="dialog" aria-label="Cookie preferences" aria-live="polite">
       <p>
-        We use cookies to understand how visitors use this website, so we can improve it. No advertising cookies are used. You can change your choice any time from &ldquo;Cookie settings&rdquo; in the footer.
+        We use cookies to understand how visitors use this website, so we can improve it. No advertising cookies are used. You can change your choice any time from &ldquo;Cookie settings&rdquo; in the footer. <Link href="/privacy">Privacy &amp; Cookies policy</Link>
       </p>
       <div className="cookie-btns">
         <button type="button" className="cookie-no" onClick={() => choose("denied")}>Decline</button>
