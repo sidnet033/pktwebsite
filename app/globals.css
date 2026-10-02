@@ -48,8 +48,10 @@ img{max-width:100%}
 .s-intro .big{font-weight:300;font-size:2.1rem;line-height:1.18;letter-spacing:-.01em;margin-bottom:20px}
 .arrow{font-weight:600;border-bottom:2px solid var(--ink);padding-bottom:2px;display:inline-block;font-size:.9rem;text-decoration:none;align-self:flex-start;width:fit-content}
 .s-nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
-.s-nums div{padding:22px 24px 8px 0}
-.s-nums strong{display:block;font-weight:300;font-size:3.4rem;line-height:1;letter-spacing:-.02em}
+.s-nums>*{padding:22px 24px 8px 0;color:inherit;text-decoration:none;display:block}
+.s-nums>a:hover strong{color:var(--red)}
+.s-nums>a:hover span{text-decoration:underline}
+.s-nums strong{display:block;font-weight:300;font-size:clamp(1.9rem,3.2vw,3rem);white-space:nowrap;line-height:1;letter-spacing:-.02em}
 .s-nums span{display:block;margin-top:8px;font-size:.85rem;color:#55554f}
 .s-tiles{display:grid;grid-template-columns:1fr 1fr;gap:4px}
 .s-tiles.three{grid-template-columns:repeat(3,1fr)}
@@ -125,7 +127,7 @@ dialog.qd textarea{min-height:100px;resize:vertical}
   .s-sec{padding-block:40px}
   .s-intro,.s-group,.s-cols,.s-cols.four,.s-cols.two,.s-foot,.chk,.s-tiles,.s-tiles.three,.dlr{grid-template-columns:1fr}
   .s-intro .big{font-size:1.6rem}
-  .s-nums{grid-template-columns:1fr 1fr}.s-nums strong{font-size:2rem}
+  .s-nums{grid-template-columns:1fr 1fr}.s-nums strong{font-size:1.45rem}
   .tile{min-height:200px}.s-tiles.three .tile{min-height:160px}
   .s-group .n{font-size:6rem}
   .s-cta{flex-direction:column;align-items:flex-start}.s-cta h2{font-size:2rem}
@@ -152,7 +154,6 @@ dialog.qd textarea{min-height:100px;resize:vertical}
 .dots{position:absolute;left:40px;bottom:20px;display:flex;gap:8px;z-index:2}
 .dots button{width:28px;height:3px;border:0;padding:0;background:rgba(255,255,255,.5);cursor:pointer}
 .dots button[aria-current="true"]{background:#fff}
-@media (prefers-reduced-motion:reduce){.car-slide.on,.car-slide.out{transition:none}}
 @media (max-width:900px){
   .s-logo img{height:40px}.s-logo{font-size:.9rem;gap:10px}
   .intro-hero{padding:48px 16px 32px}

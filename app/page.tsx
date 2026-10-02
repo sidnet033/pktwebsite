@@ -1,12 +1,11 @@
 import { Carousel } from "@/components/Carousel";
-import { Cta } from "@/components/Chrome";
-import { SITE } from "@/lib/site";
+import Link from "next/link";
 
 const NUMS = [
-  ["20 MVA", "Oil cooled transformers, up to"],
-  ["33 kV", "Transformer voltage class, up to"],
-  ["6,300 A", "LV switchboards, up to"],
-  ["1,000 kVA", "Voltage regulators, up to"],
+  ["20MVA, 33kV", "Oil cooled transformers, up to", "/transformers"],
+  ["CSS", "India & Europe Specs", "/compact-substations"],
+  ["6,300 A", "LV switchboards, up to", "/lv-switchboards"],
+  ["1,000 kVA", "Voltage regulators, up to", "/avrs"],
 ];
 
 export default function Home() {
@@ -19,17 +18,8 @@ export default function Home() {
       <Carousel />
       <section className="s-sec">
         <div className="lab">Our range</div>
-        <div className="s-nums">{NUMS.map(([n, l]) => <div key={n}><strong>{n}</strong><span>{l}</span></div>)}</div>
+        <div className="s-nums">{NUMS.map(([n, l, href]) => <Link key={n} href={href}><strong>{n}</strong><span>{l}</span></Link>)}</div>
       </section>
-      <section className="s-group">
-        <div className="n">35</div>
-        <div className="stack">
-          <p className="s-h">Years of the Pai Kane Group</p>
-          <p className="mut">{SITE.name} is the group&apos;s transformer company. The same people, plant discipline and customer relationships, in a dedicated business.</p>
-          <a className="arrow" href={SITE.groupUrl}>Visit paikane.com →</a>
-        </div>
-      </section>
-      <Cta title="Tell us what you need." />
     </>
   );
 }
