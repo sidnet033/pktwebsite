@@ -143,13 +143,12 @@ dialog.qd textarea{min-height:100px;resize:vertical}
 .intro-hero h1{font-weight:300;font-size:clamp(2.6rem,5.6vw,5rem);line-height:1.02;letter-spacing:-.025em;max-width:16ch;text-wrap:balance}
 .intro-hero p{margin-top:28px;max-width:46ch;font-size:1.2rem;color:var(--mut)}
 
-/* photo carousel: slides in from the right, blurring in and out */
+/* photo carousel: blur in / blur out, no sliding */
 .car{position:relative;overflow:hidden;background:#111;aspect-ratio:12/5;width:100%}
-.car-slide{position:absolute;inset:0;will-change:transform,filter}
-.car-slide.wait{transform:translateX(100%);filter:blur(18px)}
-.car-slide.on,.car-slide.out{transition:transform .9s cubic-bezier(.65,0,.35,1),filter .9s ease}
-.car-slide.on{transform:none;filter:blur(0)}
-.car-slide.out{transform:translateX(-100%);filter:blur(18px)}
+.car-slide{position:absolute;inset:0;will-change:filter,opacity}
+.car-slide.wait{opacity:0;filter:blur(24px);z-index:0}
+.car-slide.out{opacity:1;filter:blur(24px);z-index:1;transition:filter .9s ease}
+.car-slide.on{opacity:1;filter:blur(0);z-index:2;transition:filter .9s ease,opacity .9s ease}
 .car-img{object-fit:cover}
 .dots{position:absolute;left:40px;bottom:20px;display:flex;gap:8px;z-index:2}
 .dots button{width:28px;height:3px;border:0;padding:0;background:rgba(255,255,255,.5);cursor:pointer}
