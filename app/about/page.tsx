@@ -56,7 +56,7 @@ export default function About() {
         <p className="mut">Today Pai Kane serves customers in more than 60 countries across power utilities, water infrastructure, telecom, railways, airports, data centres, and commercial and residential projects.</p>
         <p className="mut">Pai Kane Transformers LLP is the next chapter. It brings the group&apos;s people, plant discipline and customer relationships into a business dedicated to transformers and power distribution equipment. It focuses on transformers &amp; compact substations for renewables in India and diverse applications in MENA &amp; Europe.</p>
         <div className="team-wrap">
-          <div className="lab">Our leadership</div>
+          <h2 className="s-h">Our leadership</h2>
           <div className="team">
             <Person slug="atul-pai-kane" name="Atul Pai Kane" role="Chairman, Pai Kane Group of Companies" linkedin="https://www.linkedin.com/in/atul-pai-kane-93166a42/" />
             <Person slug="siddharth-naik" name="Siddharth Naik" role="Designated Partner, Pai Kane Transformers" linkedin="https://www.linkedin.com/in/siddarthnaik/" />
