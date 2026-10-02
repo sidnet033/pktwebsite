@@ -34,6 +34,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {GTM && (
           <script
             dangerouslySetInnerHTML={{
+              // Google tag (gtag.js), loaded after the consent default above so consent is respected.
+              __html: `var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=${SITE.gaId}';document.head.appendChild(g);gtag('js',new Date());gtag('config','${SITE.gaId}');`,
+            }}
+          />
+        )}
+        {GTM && (
+          <script
+            dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${SITE.gtmId}');`,
             }}
           />

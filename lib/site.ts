@@ -3,6 +3,7 @@ export const SITE = {
   email: "sales@paikane.com",
   url: "https://paikanetransformers.com",
   gtmId: "GTM-W7GLSFBG",
+  gaId: "G-VGHZQP24N7",
   groupUrl: "https://paikane.com",
   linkedin: "https://www.linkedin.com/company/pai-kane-transformers-llp/",
   phone: "+91-83298 68939",
