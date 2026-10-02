@@ -113,15 +113,15 @@ dialog.qd::backdrop{background:rgba(0,0,0,.6)}
 .dl-x{border:0;border-radius:50%;width:36px;height:36px;background:transparent;color:#666;font-size:1.6rem;line-height:1;cursor:pointer;padding:0 4px}
 dialog.qd form{display:flex;flex-direction:column;gap:14px;padding:16px 26px 26px}
 dialog.qd label{display:flex;flex-direction:column;gap:5px;font:600 .8rem var(--sans)}
-dialog.qd input,dialog.qd textarea{font:400 .95rem var(--sans);padding:12px 14px;border:1px solid #d5d1de;border-radius:12px;width:100%;background:#fff}
-dialog.qd input:focus,dialog.qd textarea:focus{border-color:var(--red);outline:2px solid rgba(37,9,82,.18);outline-offset:0}
+dialog.qd input,dialog.qd textarea,dialog.qd select{font:400 .95rem var(--sans);padding:12px 14px;border:1px solid #d5d1de;border-radius:12px;width:100%;background:#fff}
+dialog.qd input:focus,dialog.qd textarea:focus,dialog.qd select:focus{border-color:var(--red);outline:2px solid rgba(37,9,82,.18);outline-offset:0}
 dialog.qd textarea{min-height:100px;resize:vertical}
 .hp{position:absolute!important;left:-9999px;width:1px!important;height:1px!important}
 .err{color:var(--red);font:500 .75rem var(--sans);min-height:1em}
 .dl-note{font-size:.8rem;color:#666}
 .dl-ok{padding:28px 26px;display:flex;flex-direction:column;gap:12px}
 .dl-ok h3{font-size:1.7rem;font-weight:300}
-.dl-btn{align-self:flex-start;background:#0E2A47;color:#fff;font-weight:600;border:0;border-radius:12px;padding:13px 26px;font:600 .9rem var(--sans);cursor:pointer}
+.dl-btn{align-self:center;background:#0E2A47;color:#fff;font-weight:600;border:0;border-radius:12px;padding:13px 26px;font:600 .9rem var(--sans);cursor:pointer}
 .dl-btn:disabled{opacity:.6}
 .dl-btn.sec{background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:12px}
 
@@ -252,3 +252,8 @@ dialog.qd textarea{min-height:100px;resize:vertical}
 .cert b{margin-top:10px;color:#0E2A47;font-size:1.1rem}
 .cert small{color:var(--mut);font-size:.85rem;line-height:1.4}
 @media (max-width:900px){.certs{grid-template-columns:1fr}}
+
+dialog.qd select{appearance:auto;font:400 .95rem var(--sans);color:var(--ink)}
+dialog.qd select:invalid{color:#767676}
+dialog.qd{max-height:calc(100vh - 32px);overflow-y:auto}
+.dl-ok .dl-btn{align-self:center}

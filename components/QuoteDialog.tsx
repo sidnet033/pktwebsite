@@ -1,11 +1,12 @@
 "use client";
 
 import { createContext, useContext, useRef, useState, type ReactNode } from "react";
+import { COUNTRIES } from "@/lib/countries";
 
 const Ctx = createContext<() => void>(() => {});
 export const useQuote = () => useContext(Ctx);
 
-type Errs = Partial<Record<"name" | "email" | "mobile" | "requirement", string>>;
+type Errs = Partial<Record<"name" | "email" | "mobile" | "country" | "requirement", string>>;
 
 export function QuoteProvider({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -26,6 +27,7 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
     if (!v.name?.trim()) er.name = "Enter your name.";
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email?.trim() ?? "")) er.email = "Enter a valid email address.";
     if ((v.mobile ?? "").replace(/\D/g, "").length < 8) er.mobile = "Enter a mobile number with country code.";
+    if (!v.country) er.country = "Select your country.";
     if ((v.requirement?.trim().length ?? 0) < 10) er.requirement = "Tell us what you need, in a sentence or two.";
     setErrs(er);
     if (Object.keys(er).length) return;
@@ -58,10 +60,18 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
               <button className="dl-x" type="button" aria-label="Close" onClick={() => ref.current?.close()}>×</button>
             </div>
             <form onSubmit={submit} noValidate>
-              <label>Your name<input name="name" autoComplete="name" /><span className="err">{errs.name}</span></label>
-              <label>Email<input name="email" type="email" autoComplete="email" /><span className="err">{errs.email}</span></label>
-              <label>Mobile<input name="mobile" type="tel" autoComplete="tel" placeholder="+91 …" /><span className="err">{errs.mobile}</span></label>
-              <label>Your requirement<textarea name="requirement" placeholder="Product, rating, voltage, quantity, delivery location" /><span className="err">{errs.requirement}</span></label>
+              <label>Your name *<input name="name" autoComplete="name" required aria-required="true" /><span className="err">{errs.name}</span></label>
+              <label>Company name<input name="company" autoComplete="organization" /></label>
+              <label>Email *<input name="email" type="email" autoComplete="email" required aria-required="true" /><span className="err">{errs.email}</span></label>
+              <label>Mobile *<input name="mobile" type="tel" autoComplete="tel" placeholder="+91 …" /><span className="err">{errs.mobile}</span></label>
+              <label>Country *
+                <select name="country" defaultValue="" required aria-required="true" autoComplete="country-name">
+                  <option value="" disabled>Select your country</option>
+                  {COUNTRIES.map((c) => <option key={c} value={c}>{c}</option>)}
+                </select>
+                <span className="err">{errs.country}</span>
+              </label>
+              <label>Your requirement *<textarea name="requirement" placeholder="Product, rating, voltage, quantity, delivery location" /><span className="err">{errs.requirement}</span></label>
               <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp" />
               <button className="dl-btn" type="submit" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Send enquiry"}</button>
               {state === "fail" && <p className="err" role="alert">Something went wrong. Please email sales@paikane.com directly.</p>}

@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { COUNTRIES } from "@/lib/countries";
 import { SITE } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -19,13 +20,15 @@ export async function POST(req: Request) {
   const name = clean(body.name, 120);
   const email = clean(body.email, 200);
   const mobile = clean(body.mobile, 40);
+  const company = clean(body.company, 160);
+  const country = clean(body.country, 80);
   const requirement = String(body.requirement ?? "").trim().slice(0, 4000);
 
-  if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || mobile.replace(/\D/g, "").length < 8 || requirement.length < 10) {
+  if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || mobile.replace(/\D/g, "").length < 8 || requirement.length < 10 || !(COUNTRIES as readonly string[]).includes(country)) {
     return Response.json({ error: "invalid" }, { status: 400 });
   }
 
-  const text = `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\n\nRequirement:\n${requirement}\n`;
+  const text = `Name: ${name}\nCompany: ${company || "-"}\nEmail: ${email}\nMobile: ${mobile}\nCountry: ${country}\n\nRequirement:\n${requirement}\n`;
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, QUOTE_TO } = process.env;
 
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
@@ -41,7 +44,7 @@ export async function POST(req: Request) {
       from: `"${SITE.name} website" <${SMTP_USER}>`,
       to: QUOTE_TO || SITE.email,
       replyTo: `"${name}" <${email}>`,
-      subject: `Website enquiry from ${name}`,
+      subject: `Website enquiry from ${name}${company ? ` (${company})` : ""}, ${country}`,
       text,
     });
     return Response.json({ ok: true });
