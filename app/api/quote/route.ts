@@ -56,7 +56,7 @@ export async function POST(req: Request) {
       from: `"${SITE.name} website" <${user}>`,
       to: (QUOTE_TO || SITE.email).trim(),
       replyTo: `"${name}" <${email}>`,
-      subject: `Website enquiry from ${name}${company ? ` (${company})` : ""}, ${country}`,
+      subject: "Enquiry from PKT Website",
       text,
     });
     return Response.json({ ok: true });
