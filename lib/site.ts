@@ -104,3 +104,6 @@ export const PRODUCTS: Product[] = [
     ],
   },
 ];
+
+/** "What is this about?" choices on the Contacts form. The email shows the one picked. */
+export const TOPICS = ["Product enquiry", "Request a quote", "Service & support", "Partnership / contract manufacturing", "Other"] as const;

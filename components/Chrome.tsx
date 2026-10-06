@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PRODUCTS, SITE } from "@/lib/site";
@@ -23,35 +24,41 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="s-foot">
-      <div className="fb">
-        <b>{SITE.name}</b>
-        {SITE.address}
-        <br />GSTIN: {SITE.gstin}
-        <br />© {new Date().getFullYear()} {SITE.name}
+      <div className="git">
+        <Link href="/contacts" className="git-h">Get in touch with us <span aria-hidden>→</span></Link>
+        <QuoteButton className="pill light" />
       </div>
-      <div>
-        <a className="map-btn" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">View on Google Maps <span aria-hidden>↗</span></a>
+      <div className="s-foot-cols">
+        <div className="fb">
+          <b>{SITE.name}</b>
+          {SITE.address}
+          <br />GSTIN: {SITE.gstin}
+          <a className="map-btn" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">View on Google Maps <span aria-hidden>↗</span></a>
+        </div>
+        <div><b>Offerings</b>{PRODUCTS.map((p) => <Link key={p.slug} href={`/${p.slug}`}>{p.name}</Link>)}</div>
+        <div><b>Company</b><Link href="/about">About Us</Link><Link href="/certifications">Certifications</Link><Link href="/contacts">Contacts</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com ↗</a></div>
+        <div className="fc">
+          <b>Contact</b>
+          <p>Sales<br /><a href={`mailto:${SITE.email}`}>{SITE.email}</a><br /><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
+          <p>Service<br /><a href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a><br /><a href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p>
+        </div>
       </div>
-      <div><b>Products</b>{PRODUCTS.map((p) => <Link key={p.slug} href={`/${p.slug}`}>{p.name}</Link>)}</div>
-      <div><b>Company</b><Link href="/about">About</Link><Link href="/certifications">Certifications</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com</a><Link href="/privacy">Privacy &amp; Cookies</Link><CookieSettingsLink /></div>
-      <div className="fc">
-        <b>Contact</b>
-        <p>Sales: <a href={`mailto:${SITE.email}`}>{SITE.email}</a> | <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
-        <p>Service: <a href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a> | <a href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p>
-        <p><a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+      <div className="s-foot-bar">
+        <span>© {new Date().getFullYear()} {SITE.name} | All rights reserved.</span>
+        <span className="links"><Link href="/privacy">Privacy &amp; Cookies</Link><CookieSettingsLink /><a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
       </div>
     </footer>
   );
 }
 
-export function Hero({ photo, tone = "", slug, small, title, text, children }: { photo?: string; tone?: string; slug?: string; small?: boolean; title: string; text?: string; children?: React.ReactNode }) {
+/** Big page title in the Efacec style: small grey label, very large heading, optional lead paragraph. */
+export function PageHead({ label, title, lead, children }: { label?: ReactNode; title: string; lead?: ReactNode; children?: ReactNode }) {
   return (
-    <section className={`photo ${tone} s-hero ${small ? "sm" : ""}`} style={slug ? ({ "--img": `url(/products/${slug}.jpg)` } as React.CSSProperties) : undefined} aria-label={photo}>
-      <div className="in">
-        <h1>{title}</h1>
-        {text && <p>{text}</p>}
-        {children && <div className="row">{children}</div>}
-      </div>
+    <section className="ph">
+      {label && <div className="ph-lab">{label}</div>}
+      <h1>{title}</h1>
+      {lead && <p className="ph-lead">{lead}</p>}
+      {children}
     </section>
   );
 }

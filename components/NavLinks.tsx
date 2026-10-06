@@ -58,6 +58,7 @@ export function NavLinks() {
       </div>
       <Item href="/about" label="About Us" path={path} />
       <Item href="/certifications" label="Certifications" path={path} />
+      <Item href="/contacts" label="Contacts" path={path} />
     </>
   );
 }
