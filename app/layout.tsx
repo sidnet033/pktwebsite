@@ -5,6 +5,7 @@ import "./globals.css";
 import { Footer, Header } from "@/components/Chrome";
 import { CookieConsent } from "@/components/CookieConsent";
 import { QuoteProvider } from "@/components/QuoteDialog";
+import { Reveal } from "@/components/Reveal";
 import { CONSENT_DAYS, CONSENT_KEY } from "@/lib/consent";
 import { SITE } from "@/lib/site";
 
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <Footer />
           <CookieConsent />
+          <Reveal />
         </QuoteProvider>
       </body>
     </html>

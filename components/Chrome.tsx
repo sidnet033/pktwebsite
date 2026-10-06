@@ -24,23 +24,22 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="s-foot">
-      <div className="git">
-        <Link href="/contacts" className="git-h">Get in touch with us <span aria-hidden>→</span></Link>
-        <QuoteButton className="pill light" />
-      </div>
       <div className="s-foot-cols">
         <div className="fb">
-          <b>{SITE.name}</b>
-          {SITE.address}
-          <br />GSTIN: {SITE.gstin}
+          <Link href="/" className="f-logo" aria-label={SITE.name}>
+            <Image src="/logo.png" alt="" width={640} height={557} />
+            <b>{SITE.name}</b>
+          </Link>
+          <p>{SITE.address}<br />GSTIN: {SITE.gstin}</p>
           <a className="map-btn" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">View on Google Maps <span aria-hidden>↗</span></a>
         </div>
         <div><b>Offerings</b>{PRODUCTS.map((p) => <Link key={p.slug} href={`/${p.slug}`}>{p.name}</Link>)}</div>
         <div><b>Company</b><Link href="/about">About Us</Link><Link href="/certifications">Certifications</Link><Link href="/contacts">Contacts</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com ↗</a></div>
         <div className="fc">
           <b>Contact</b>
-          <p>Sales<br /><a href={`mailto:${SITE.email}`}>{SITE.email}</a><br /><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
-          <p>Service<br /><a href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a><br /><a href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p>
+          <p><span>Sales</span><a href={`mailto:${SITE.email}`}>{SITE.email}</a> | <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
+          <p><span>Service &amp; support</span><a href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a> | <a href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p>
+          <p><span>Careers</span><a href={`mailto:${SITE.careersEmail}`}>{SITE.careersEmail}</a></p>
         </div>
       </div>
       <div className="s-foot-bar">

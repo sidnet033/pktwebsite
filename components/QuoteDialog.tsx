@@ -8,7 +8,7 @@ import { SITE, TOPICS } from "@/lib/site";
 const Ctx = createContext<() => void>(() => {});
 export const useQuote = () => useContext(Ctx);
 
-type Errs = Partial<Record<"name" | "email" | "mobile" | "country" | "requirement", string>>;
+type Errs = Partial<Record<"name" | "email" | "mobile" | "country" | "requirement" | "privacy", string>>;
 
 /** The enquiry form. Used in the "Request a quote" pop-up and on the Contacts page. Sends to /api/quote; nothing is stored. */
 export function QuoteForm({ page, onClose }: { page?: boolean; onClose?: () => void }) {
@@ -26,6 +26,7 @@ export function QuoteForm({ page, onClose }: { page?: boolean; onClose?: () => v
     if ((v.mobile ?? "").replace(/\D/g, "").length < 8) er.mobile = "Enter a mobile number with country code.";
     if (!v.country) er.country = "Select your country.";
     if ((v.requirement?.trim().length ?? 0) < 10) er.requirement = "Tell us what you need, in a sentence or two.";
+    if (page && !v.privacy) er.privacy = "Please confirm you have read the Privacy & Cookies policy.";
     setErrs(er);
     if (Object.keys(er).length) return;
     setState("sending");
@@ -67,7 +68,7 @@ export function QuoteForm({ page, onClose }: { page?: boolean; onClose?: () => v
           </select>
         </label>
       )}
-      <label>Your name *<input name="name" autoComplete="name" required aria-required="true" /><span className="err">{errs.name}</span></label>
+      <label>{page ? "Name (first and last) *" : "Your name *"}<input name="name" autoComplete="name" required aria-required="true" /><span className="err">{errs.name}</span></label>
       <label>Company name<input name="company" autoComplete="organization" /></label>
       <label>Email *<input name="email" type="email" autoComplete="email" required aria-required="true" /><span className="err">{errs.email}</span></label>
       <label>Mobile *<input name="mobile" type="tel" autoComplete="tel" placeholder="+91 …" /><span className="err">{errs.mobile}</span></label>
@@ -80,7 +81,14 @@ export function QuoteForm({ page, onClose }: { page?: boolean; onClose?: () => v
       </label>
       <label className="full">{page ? "Message *" : "Your requirement *"}<textarea name="requirement" placeholder="Product, rating, voltage, quantity, delivery location" /><span className="err">{errs.requirement}</span></label>
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp" />
-      <p className="qf-note full">By sending this form you agree to our <Link href="/privacy">Privacy &amp; Cookies</Link> policy.</p>
+      {page ? (
+        <label className="qf-check full">
+          <span><input type="checkbox" name="privacy" value="yes" required aria-required="true" /> I have read and understood the <Link href="/privacy">Privacy &amp; Cookies</Link> policy *</span>
+          <span className="err">{errs.privacy}</span>
+        </label>
+      ) : (
+        <p className="qf-note full">By sending this form you agree to our <Link href="/privacy">Privacy &amp; Cookies</Link> policy.</p>
+      )}
       <div className="qf-btns full">
         <button className="pill" type="submit" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Send"}</button>
         {page && <button className="pill line" type="reset" onClick={() => setErrs({})}>Reset</button>}

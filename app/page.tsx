@@ -18,7 +18,7 @@ export default function Home() {
       <PromoBox />
       <section className="ph">
         <h1>Power equipment, engineered to your specification.</h1>
-        <p className="ph-lead">Transformers, compact substations, LV switchboards and voltage regulators, made in Goa.</p>
+        <p className="ph-lead one">Transformers, compact substations, LV switchboards and voltage regulators, made in Goa.</p>
         <a className="ef-link" href="#portfolio">Get to know our portfolio <span aria-hidden>↓</span></a>
       </section>
       <Carousel className="wide" />

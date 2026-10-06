@@ -11,6 +11,7 @@ export const SITE = {
   serviceEmail: "productsupport@paikane.com",
   servicePhone: "+91-93250 05811",
   servicePhoneHref: "+919325005811",
+  careersEmail: "humancapital@paikane.com",
   gstin: "30ABGFP2254A1ZY",
   mapsLink: "https://maps.app.goo.gl/mDHgq9Gd6Q2ExF3w9",
   mapsLatLng: "15.6841002,73.7961532",
