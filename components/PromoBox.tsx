@@ -17,7 +17,7 @@ export function PromoBox() {
   // Show once per browser tab: sessionStorage is cleared when the tab closes,
   // so a new tab shows it again, but moving to other pages and back does not.
   useEffect(() => {
-    if (!PROMO.enabled || n === 0) return;
+    if (!PROMO.enabled || n === 0 || (PROMO.until && Date.now() >= Date.parse(PROMO.until))) return;
     try {
       if (sessionStorage.getItem(SEEN_KEY)) return;
       sessionStorage.setItem(SEEN_KEY, "1");

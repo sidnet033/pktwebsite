@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "How Pai Kane Transformers LLP handles personal information and cookies on this website.",
 };
 
-const UPDATED = "2 October 2026";
+const UPDATED = "6 October 2026";
 
 export default function Privacy() {
   return (
@@ -23,8 +23,9 @@ export default function Privacy() {
       <h2>1. What we collect</h2>
       <h3>When you send an enquiry</h3>
       <p>
-        If you use the &ldquo;Request a quote&rdquo; form, we receive the details you type: your name, company name (optional), email address, mobile number, country, and
-        the requirement you describe. We use them only to reply to your enquiry and to prepare an offer.
+        If you use the &ldquo;Request a quote&rdquo; form or the form on our <Link href="/contacts">Contacts</Link> page, we receive the details you type: your name, company
+        name (optional), email address, mobile number, country, the topic you choose (Contacts page only) and the requirement or message you write. We use them only to reply
+        to your enquiry and, where relevant, to prepare an offer.
       </p>
       <p>
         The website does not keep a copy of your enquiry. It is sent as an email to our sales team and then lives in our company mailboxes, like any other email we receive.
