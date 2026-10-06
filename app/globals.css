@@ -332,5 +332,5 @@ dialog.promo:focus{outline:none}
 }
 
 /* ---------- fade in on scroll (classes added by components/Reveal.tsx) ---------- */
-.fade{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.fade{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),background-color .15s,color .15s}
 .fade.in{opacity:1;transform:none}
