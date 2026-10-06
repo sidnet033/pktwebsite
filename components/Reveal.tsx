@@ -3,8 +3,9 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-// Text and cards fade in one after another as the visitor scrolls down.
-// Without JavaScript (or with "reduce motion" on) everything simply shows.
+// Scroll-linked fade: each item goes from invisible (just entering at the bottom of the screen)
+// to fully solid as it is scrolled up the screen. Without JavaScript, or with "reduce motion" on,
+// everything simply shows.
 const TARGETS = [
   "main h1", "main h2", "main h3", "main p", "main li", "main .dlr", "main .ef-link", "main .pill",
   "main .stats>div", "main .pf-card", "main .ef-card", "main .loc", "main .person", "main .cert", "main .qf>*",
@@ -12,36 +13,47 @@ const TARGETS = [
   ".s-foot-cols>div", ".s-foot-bar",
 ].join(",");
 
-const STEP_MS = 90; // gap between items that appear together
-const MAX_STEPS = 6;
+const RANGE = 0.3; // fade happens over the bottom 30% of the screen
+const LIFT = 24; // px the item rises while fading in
 
 export function Reveal() {
   const path = usePathname();
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     // Animate the outermost match only (e.g. a whole card, not the heading inside it).
     const els = Array.from(document.querySelectorAll<HTMLElement>(TARGETS)).filter(
-      (el) => !el.closest("dialog") && !el.classList.contains("hp") && !el.parentElement?.closest(TARGETS) && !el.classList.contains("in"),
+      (el) => !el.closest("dialog") && !el.classList.contains("hp") && !el.parentElement?.closest(TARGETS),
     );
-    const io = new IntersectionObserver(
-      (entries) => {
-        let n = 0;
-        for (const e of entries) {
-          if (!e.isIntersecting) continue;
-          const el = e.target as HTMLElement;
-          el.style.transitionDelay = `${Math.min(n++, MAX_STEPS) * STEP_MS}ms`;
-          el.classList.add("in");
-          el.addEventListener("transitionend", () => (el.style.transitionDelay = ""), { once: true });
-          io.unobserve(el);
-        }
-      },
-      { threshold: 0 },
-    );
-    for (const el of els) {
-      el.classList.add("fade");
-      io.observe(el);
-    }
-    return () => io.disconnect();
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const vh = window.innerHeight;
+      const atEnd = window.scrollY + vh >= document.documentElement.scrollHeight - 4;
+      for (const el of els) {
+        const top = el.getBoundingClientRect().top;
+        // 0 when the item's top is at the bottom edge, 1 once it is RANGE of the screen higher.
+        const p = atEnd ? 1 : Math.min(1, Math.max(0, (vh - top) / (vh * RANGE)));
+        el.style.opacity = String(p);
+        el.style.transform = p < 1 ? `translateY(${((1 - p) * LIFT).toFixed(1)}px)` : "";
+      }
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(frame);
+      for (const el of els) {
+        el.style.opacity = "";
+        el.style.transform = "";
+      }
+    };
   }, [path]);
   return null;
 }

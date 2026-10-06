@@ -95,10 +95,6 @@ img{max-width:100%}
 .fam-txt{display:flex;flex-direction:column;gap:24px;min-width:0}
 .fam+.fam{padding-top:0}
 
-/* statement band */
-.statement{background:var(--btn);color:#fff;border-radius:12px;margin:0 var(--pad) clamp(48px,7vw,104px)}
-.statement h2{font-weight:400;font-size:clamp(1.8rem,3.8vw,3.6rem);line-height:1.1;letter-spacing:-.035em;max-width:24ch}
-.statement .ef-link{color:#fff}.statement .ef-link:hover{color:#bdbdbd}
 
 /* numbered cards */
 .ef-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
@@ -331,6 +327,3 @@ dialog.promo:focus{outline:none}
   .cookie{flex-direction:column;align-items:stretch;gap:12px}.cookie-btns button{flex:1}
 }
 
-/* ---------- fade in on scroll (classes added by components/Reveal.tsx) ---------- */
-.fade{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),background-color .15s,color .15s}
-.fade.in{opacity:1;transform:none}

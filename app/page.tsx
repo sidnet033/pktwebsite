@@ -51,10 +51,6 @@ export default function Home() {
         );
       })}
 
-      <section className="ef-sec statement">
-        <h2>A young transformer company with a 35-year engineering foundation, serving customers in India, MENA and Europe.</h2>
-        <Link className="ef-link" href="/about">About Pai Kane <span aria-hidden>→</span></Link>
-      </section>
     </>
   );
 }
