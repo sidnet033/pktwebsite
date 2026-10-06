@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 
 import { Footer, Header } from "@/components/Chrome";
 import { CookieConsent } from "@/components/CookieConsent";
 import { QuoteProvider } from "@/components/QuoteDialog";
+import { Reveal } from "@/components/Reveal";
 import { CONSENT_DAYS, CONSENT_KEY } from "@/lib/consent";
 import { SITE } from "@/lib/site";
 
-const hanken = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-name", display: "swap" });
+const font = Inter_Tight({ subsets: ["latin"], weight: ["300", "400", "500", "600"], variable: "--font-name", display: "swap" });
 
 // Google Tag Manager runs on the live site only, so test (preview) visits are not counted.
 const GTM = process.env.VERCEL_ENV === "production";
@@ -23,8 +24,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={hanken.variable}>
+    <html lang="en" className={font.variable} suppressHydrationWarning>
       <head>
+        {/* Fade-in (components/Reveal.tsx): keep page content hidden until it starts, except on the home page.
+            Safety net: shown after 2.5 s even if scripts fail. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(location.pathname!=='/'){var h=document.documentElement;h.classList.add('rv-wait');setTimeout(function(){h.classList.remove('rv-wait')},2500)}`,
+          }}
+        />
         {/* Google Consent Mode: analytics storage is OFF until the visitor accepts (or accepted before). */}
         <script
           dangerouslySetInnerHTML={{
@@ -58,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <Footer />
           <CookieConsent />
+          <Reveal />
         </QuoteProvider>
       </body>
     </html>
