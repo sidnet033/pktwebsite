@@ -3,7 +3,8 @@
 import { usePathname } from "next/navigation";
 import { useLayoutEffect } from "react";
 
-// Fade-in of text, cards and photos. Without JavaScript, or with "reduce motion" on, everything simply shows.
+// Fade-in of text, cards and photos. Without JavaScript everything simply shows.
+// Like efacec.com, this runs even when the device has "Reduce motion" switched on.
 //
 // Home page: scroll-linked. Each item goes from invisible (entering at the bottom of the screen) to solid as
 //   it is scrolled up the screen, and only ever gets more solid.
@@ -119,10 +120,6 @@ export function Reveal() {
   // Layout effect: items are hidden before the browser paints, so nothing flashes before fading in.
   useLayoutEffect(() => {
     const html = document.documentElement;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      html.classList.remove("rv-wait");
-      return;
-    }
     const cleanup = path === "/" ? scrollLinked() : timedOnView();
     html.classList.remove("rv-wait"); // set in <head> on first load; items now handle their own fade
     return cleanup;

@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             Safety net: shown after 2.5 s even if scripts fail. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `if(location.pathname!=='/'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var h=document.documentElement;h.classList.add('rv-wait');setTimeout(function(){h.classList.remove('rv-wait')},2500)}`,
+            __html: `if(location.pathname!=='/'){var h=document.documentElement;h.classList.add('rv-wait');setTimeout(function(){h.classList.remove('rv-wait')},2500)}`,
           }}
         />
         {/* Google Consent Mode: analytics storage is OFF until the visitor accepts (or accepted before). */}
