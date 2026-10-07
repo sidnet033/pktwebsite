@@ -399,3 +399,7 @@ h1,h2,h3{overflow-wrap:break-word}
 /* the "|" between email and phone is not a label: keep it on the same line (the label rule above makes spans block) */
 .s-foot .fc p span.sep{display:inline;color:inherit;font-size:inherit}
 @media (max-width:340px){.s-foot .fc p span.sep{display:none}}
+
+/* footer: registered office and factory addresses */
+.s-foot .fb p+p{margin-top:12px}
+.s-foot .fb p .lbl{display:block;color:var(--ink);font-size:.85rem}

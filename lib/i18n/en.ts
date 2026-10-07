@@ -4,7 +4,7 @@ export const en = {
   ui: {
     nav: { main: "Main", home: "Home", offerings: "Offerings", about: "About Us", certifications: "Certifications", contacts: "Contacts", quote: "Request a quote", openMenu: "Open menu", closeMenu: "Close menu", language: "Language" },
     offeringItems: { transformers: "Transformers", "compact-substations": "Compact Substations (CSS)", "lv-switchboards": "LV Switchboards", avrs: "Voltage Regulators (AVR)" } as Record<string, string>,
-    footer: { offerings: "Offerings", company: "Company", about: "About Us", certifications: "Certifications", contacts: "Contacts", contact: "Contact", sales: "Sales", service: "Service & support", careers: "Careers", gstin: "GSTIN", maps: "View on Google Maps", rights: "All rights reserved.", privacy: "Privacy & Cookies", cookieSettings: "Cookie settings", linkedin: "LinkedIn" },
+    footer: { registered: "Registered office", factory: "Factory", offerings: "Offerings", company: "Company", about: "About Us", certifications: "Certifications", contacts: "Contacts", contact: "Contact", sales: "Sales", service: "Service & support", careers: "Careers", gstin: "GSTIN", maps: "View on Google Maps", rights: "All rights reserved.", privacy: "Privacy & Cookies", cookieSettings: "Cookie settings", linkedin: "LinkedIn" },
     cookie: {
       label: "Cookie preferences",
       text: "We use cookies to understand how visitors use this website, so we can improve it. No advertising cookies are used. You can change your choice any time from “Cookie settings” in the footer.",

@@ -5,7 +5,7 @@ export const pt: Dict = {
   ui: {
     nav: { main: "Principal", home: "Início", offerings: "Soluções", about: "Sobre Nós", certifications: "Certificações", contacts: "Contactos", quote: "Pedir orçamento", openMenu: "Abrir menu", closeMenu: "Fechar menu", language: "Idioma" },
     offeringItems: { transformers: "Transformadores", "compact-substations": "Postos de Transformação Compactos (CSS)", "lv-switchboards": "Quadros de Baixa Tensão", avrs: "Reguladores de Tensão (AVR)" },
-    footer: { offerings: "Soluções", company: "Empresa", about: "Sobre Nós", certifications: "Certificações", contacts: "Contactos", contact: "Contacto", sales: "Vendas", service: "Assistência e suporte", careers: "Carreiras", gstin: "GSTIN", maps: "Ver no Google Maps", rights: "Todos os direitos reservados.", privacy: "Privacidade e Cookies", cookieSettings: "Definições de cookies", linkedin: "LinkedIn" },
+    footer: { registered: "Sede social", factory: "Fábrica", offerings: "Soluções", company: "Empresa", about: "Sobre Nós", certifications: "Certificações", contacts: "Contactos", contact: "Contacto", sales: "Vendas", service: "Assistência e suporte", careers: "Carreiras", gstin: "GSTIN", maps: "Ver no Google Maps", rights: "Todos os direitos reservados.", privacy: "Privacidade e Cookies", cookieSettings: "Definições de cookies", linkedin: "LinkedIn" },
     cookie: {
       label: "Preferências de cookies",
       text: "Utilizamos cookies para perceber como os visitantes utilizam este site, de modo a podermos melhorá-lo. Não são utilizados cookies publicitários. Pode alterar a sua escolha a qualquer momento em «Definições de cookies», no rodapé.",
