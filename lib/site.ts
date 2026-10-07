@@ -15,7 +15,8 @@ export const SITE = {
   gstin: "30ABGFP2254A1ZY",
   mapsLink: "https://maps.app.goo.gl/mDHgq9Gd6Q2ExF3w9",
   mapsLatLng: "15.6841002,73.7961532",
-  address: "58A, Tuem Industrial Estate, Tuem, Pernem, North Goa - 403512",
+  address: "58A, Tuem Industrial Estate, Tuem, Pernem, North Goa - 403512", // registered office
+  factoryAddress: "Plot No. 66 & 67, Tuem Industrial Estate, Tuem, Pernem, North Goa - 403512", // factory (as on the ISO and BIS certificates)
 };
 
 export type Product = {
