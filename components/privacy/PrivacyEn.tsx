@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { lp } from "@/lib/i18n";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Privacy & Cookies",
-  description: "How Pai Kane Transformers LLP handles personal information and cookies on this website.",
-};
+export const PRIVACY_UPDATED_EN = "6 October 2026";
 
-const UPDATED = "6 October 2026";
-
-export default function Privacy() {
+export function PrivacyEn() {
+  const UPDATED = PRIVACY_UPDATED_EN;
   return (
     <section className="s-sec prose">
       <h1 className="s-h big2">Privacy &amp; Cookies</h1>
@@ -23,7 +19,7 @@ export default function Privacy() {
       <h2>1. What we collect</h2>
       <h3>When you send an enquiry</h3>
       <p>
-        If you use the &ldquo;Request a quote&rdquo; form or the form on our <Link href="/contacts">Contacts</Link> page, we receive the details you type: your name, company
+        If you use the &ldquo;Request a quote&rdquo; form or the form on our <Link href={lp("en", "/contacts")}>Contacts</Link> page, we receive the details you type: your name, company
         name (optional), email address, mobile number, country, the topic you choose (Contacts page only) and the requirement or message you write. We use them only to reply
         to your enquiry and, where relevant, to prepare an offer.
       </p>
@@ -91,8 +87,8 @@ export default function Privacy() {
       <p>
         {SITE.name}<br />
         {SITE.address}<br />
-        Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
-        Phone: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>
+        Email: <a translate="no" href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
+        Phone: <a translate="no" href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>
       </p>
 
       <h2>7. Changes to this page</h2>
@@ -100,7 +96,7 @@ export default function Privacy() {
         We may update this page from time to time. The date at the top shows when it last changed.
       </p>
 
-      <p><Link href="/" className="arrow">Back to home →</Link></p>
+      <p><Link href={lp("en", "/")} className="arrow">Back to home →</Link></p>
     </section>
   );
 }

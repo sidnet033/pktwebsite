@@ -3,10 +3,13 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PROMO } from "@/lib/promo";
+import { useI18n } from "./I18n";
 
 const SEEN_KEY = "pkt-promo-seen";
 
 export function PromoBox() {
+  const { ui } = useI18n();
+  const t = ui.promo;
   const ref = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState(false);
   const [i, setI] = useState(0);
@@ -54,28 +57,28 @@ export function PromoBox() {
       ref={ref}
       className="promo"
       tabIndex={-1}
-      aria-label="Latest news from Pai Kane Transformers"
+      aria-label={t.label}
       onClose={() => setOpen(false)}
       onClick={(e) => e.target === ref.current && ref.current?.close()}
     >
       <div className="promo-box" aria-roledescription="carousel" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {slides.map((s, k) => (
           <div key={s.src} className={`promo-slide ${k === i ? "on" : ""}`} aria-hidden={k !== i}>
-            <Image src={s.src} alt={s.alt} fill sizes="(max-width: 900px) 92vw, 80vh" priority={k === 0} className="promo-img" />
+            <Image src={s.src} alt={t.alts[k] ?? s.alt} fill sizes="(max-width: 900px) 92vw, 80vh" priority={k === 0} className="promo-img" />
           </div>
         ))}
-        <button type="button" className="promo-x" aria-label="Close" onClick={() => ref.current?.close()}>
+        <button type="button" className="promo-x" aria-label={t.close} onClick={() => ref.current?.close()}>
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
             <path d="M5 5 19 19M19 5 5 19" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" fill="none" />
           </svg>
         </button>
         {n > 1 && (
           <>
-            <button type="button" className="promo-nav prev" aria-label="Previous" onClick={() => go(i - 1)}>‹</button>
-            <button type="button" className="promo-nav next" aria-label="Next" onClick={() => go(i + 1)}>›</button>
+            <button type="button" className="promo-nav prev" aria-label={t.prev} onClick={() => go(i - 1)}>‹</button>
+            <button type="button" className="promo-nav next" aria-label={t.next} onClick={() => go(i + 1)}>›</button>
             <div className="promo-dots">
               {slides.map((s, k) => (
-                <button key={s.src} type="button" aria-label={`Show item ${k + 1}`} aria-current={k === i} onClick={() => go(k)} />
+                <button key={s.src} type="button" aria-label={`${t.item} ${k + 1}`} aria-current={k === i} onClick={() => go(k)} />
               ))}
             </div>
           </>

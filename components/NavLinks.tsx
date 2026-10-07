@@ -4,27 +4,26 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-const OFFERINGS = [
-  ["/transformers", "Transformers"],
-  ["/compact-substations", "Compact Substations (CSS)"],
-  ["/lv-switchboards", "LV Switchboards"],
-  ["/avrs", "Voltage Regulators (AVR)"],
-] as const;
+import { lp, splitPath, type Lang } from "@/lib/i18n";
+import { useI18n } from "./I18n";
 
-function Item({ href, label, path }: { href: string; label: string; path: string }) {
+const OFFERINGS = ["/transformers", "/compact-substations", "/lv-switchboards", "/avrs"] as const;
+
+function Item({ href, label, path, lang }: { href: string; label: string; path: string; lang: Lang }) {
   const active = href === "/" ? path === "/" : path.startsWith(href);
   return (
-    <Link href={href} className={active ? "active" : undefined} aria-current={active ? "page" : undefined}>
+    <Link href={lp(lang, href)} className={active ? "active" : undefined} aria-current={active ? "page" : undefined}>
       {label}
     </Link>
   );
 }
 
 export function NavLinks() {
-  const path = usePathname();
+  const { lang, ui } = useI18n();
+  const path = splitPath(usePathname()).path; // same page whether or not the address starts with /pt
   const [open, setOpen] = useState(false);
   const wrap = useRef<HTMLDivElement>(null);
-  const onOffering = OFFERINGS.some(([h]) => path.startsWith(h));
+  const onOffering = OFFERINGS.some((h) => path.startsWith(h));
 
   useEffect(() => setOpen(false), [path]);
   useEffect(() => {
@@ -41,24 +40,24 @@ export function NavLinks() {
 
   return (
     <>
-      <Item href="/" label="Home" path={path} />
+      <Item href="/" label={ui.nav.home} path={path} lang={lang} />
       <div className="dd" ref={wrap} onPointerEnter={(e) => e.pointerType === "mouse" && setOpen(true)} onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(false)}>
         <button type="button" className={`dd-btn ${onOffering ? "active" : ""}`} aria-expanded={open} aria-haspopup="true" onClick={() => setOpen((o) => !o)}>
-          Offerings <span aria-hidden>▾</span>
+          {ui.nav.offerings} <span aria-hidden>▾</span>
         </button>
         {open && (
           <div className="dd-menu" role="menu">
-            {OFFERINGS.map(([href, label]) => (
-              <Link key={href} href={href} role="menuitem" aria-current={path.startsWith(href) ? "page" : undefined}>
-                {label}
+            {OFFERINGS.map((href) => (
+              <Link key={href} href={lp(lang, href)} role="menuitem" aria-current={path.startsWith(href) ? "page" : undefined}>
+                {ui.offeringItems[href.slice(1)]}
               </Link>
             ))}
           </div>
         )}
       </div>
-      <Item href="/about" label="About Us" path={path} />
-      <Item href="/certifications" label="Certifications" path={path} />
-      <Item href="/contacts" label="Contacts" path={path} />
+      <Item href="/about" label={ui.nav.about} path={path} lang={lang} />
+      <Item href="/certifications" label={ui.nav.certifications} path={path} lang={lang} />
+      <Item href="/contacts" label={ui.nav.contacts} path={path} lang={lang} />
     </>
   );
 }

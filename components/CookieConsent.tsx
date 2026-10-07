@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CONSENT_DAYS, CONSENT_EVENT, CONSENT_KEY } from "@/lib/consent";
+import { lp } from "@/lib/i18n";
+import { useI18n } from "./I18n";
 
 declare global {
   interface Window {
@@ -38,6 +40,8 @@ function save(v: Choice) {
 }
 
 export function CookieConsent() {
+  const { lang, ui } = useI18n();
+  const c = ui.cookie;
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -55,22 +59,23 @@ export function CookieConsent() {
   };
 
   return (
-    <div className="cookie" role="dialog" aria-label="Cookie preferences" aria-live="polite">
+    <div className="cookie" role="dialog" aria-label={c.label} aria-live="polite">
       <p>
-        We use cookies to understand how visitors use this website, so we can improve it. No advertising cookies are used. You can change your choice any time from &ldquo;Cookie settings&rdquo; in the footer. <Link href="/privacy">Privacy &amp; Cookies policy</Link>
+        {c.text} <Link href={lp(lang, "/privacy")}>{c.policy}</Link>
       </p>
       <div className="cookie-btns">
-        <button type="button" className="cookie-no" onClick={() => choose("denied")}>Decline</button>
-        <button type="button" className="cookie-yes" onClick={() => choose("granted")}>Accept</button>
+        <button type="button" className="cookie-no" onClick={() => choose("denied")}>{c.decline}</button>
+        <button type="button" className="cookie-yes" onClick={() => choose("granted")}>{c.accept}</button>
       </div>
     </div>
   );
 }
 
 export function CookieSettingsLink() {
+  const { ui } = useI18n();
   return (
     <button type="button" className="linklike" onClick={() => window.dispatchEvent(new Event(CONSENT_EVENT))}>
-      Cookie settings
+      {ui.footer.cookieSettings}
     </button>
   );
 }

@@ -32,12 +32,13 @@ export async function POST(req: Request) {
   const country = clean(body.country, 80);
   const requirement = String(body.requirement ?? "").trim().slice(0, 4000);
   const topic = clean(body.topic, 80);
+  const language = body.lang === "pt" ? "Portuguese" : "English"; // language of the website the visitor used
 
   if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || mobile.replace(/\D/g, "").length < 8 || requirement.length < 10 || !(COUNTRIES as readonly string[]).includes(country) || (topic && !(TOPICS as readonly string[]).includes(topic))) {
     return Response.json({ error: "invalid" }, { status: 400 });
   }
 
-  const text = `${topic ? `Topic: ${topic}\n` : ""}Name: ${name}\nCompany: ${company || "-"}\nEmail: ${email}\nMobile: ${mobile}\nCountry: ${country}\n\nRequirement:\n${requirement}\n`;
+  const text = `${topic ? `Topic: ${topic}\n` : ""}Name: ${name}\nCompany: ${company || "-"}\nEmail: ${email}\nMobile: ${mobile}\nCountry: ${country}\nWebsite language: ${language}\n\nRequirement:\n${requirement}\n`;
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, QUOTE_TO } = process.env;
 
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
