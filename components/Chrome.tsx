@@ -1,50 +1,53 @@
-import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { PRODUCTS, SITE } from "@/lib/site";
+import type { ReactNode } from "react";
+import { lp, type Lang } from "@/lib/i18n";
+import { getDict } from "@/lib/i18n/dict";
+import { getProducts } from "@/lib/products";
+import { SITE } from "@/lib/site";
 import { CookieSettingsLink } from "./CookieConsent";
+import { LangSwitch } from "./LangSwitch";
 import { NavLinks } from "./NavLinks";
+import { NavShell } from "./NavShell";
 import { QuoteButton } from "./QuoteDialog";
 
-export function Header() {
+export function Header({ lang }: { lang: Lang }) {
   return (
     <header className="s-top">
-      <Link href="/" className="s-logo" aria-label={SITE.name}>
+      <Link href={lp(lang, "/")} className="s-logo" aria-label={SITE.name}>
         <Image src="/logo.png" alt="" width={640} height={557} priority />
-        <span>{SITE.name}</span>
+        <span translate="no">{SITE.name}</span>
       </Link>
-      <nav aria-label="Main">
-        <NavLinks />
-        <QuoteButton />
-      </nav>
+      <NavShell links={<NavLinks />} quote={<QuoteButton />} language={<LangSwitch />} />
     </header>
   );
 }
 
-export function Footer() {
+export function Footer({ lang }: { lang: Lang }) {
+  const { footer: f } = getDict(lang).ui;
   return (
     <footer className="s-foot">
       <div className="s-foot-cols">
         <div className="fb">
-          <Link href="/" className="f-logo" aria-label={SITE.name}>
+          <Link href={lp(lang, "/")} className="f-logo" aria-label={SITE.name}>
             <Image src="/logo.png" alt="" width={640} height={557} />
-            <b>{SITE.name}</b>
+            <b translate="no">{SITE.name}</b>
           </Link>
-          <p>{SITE.address}<br />GSTIN: {SITE.gstin}</p>
-          <a className="map-btn" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">View on Google Maps <span aria-hidden>↗</span></a>
+          <p translate="no">{SITE.address}<br />{f.gstin}: {SITE.gstin}</p>
+          <a className="map-btn" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">{f.maps} <span aria-hidden>↗</span></a>
         </div>
-        <div><b>Offerings</b>{PRODUCTS.map((p) => <Link key={p.slug} href={`/${p.slug}`}>{p.name}</Link>)}</div>
-        <div><b>Company</b><Link href="/about">About Us</Link><Link href="/certifications">Certifications</Link><Link href="/contacts">Contacts</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com ↗</a></div>
+        <div><b>{f.offerings}</b>{getProducts(lang).map((p) => <Link key={p.slug} href={lp(lang, `/${p.slug}`)}>{p.name}</Link>)}</div>
+        <div><b>{f.company}</b><Link href={lp(lang, "/about")}>{f.about}</Link><Link href={lp(lang, "/certifications")}>{f.certifications}</Link><Link href={lp(lang, "/contacts")}>{f.contacts}</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com ↗</a></div>
         <div className="fc">
-          <b>Contact</b>
-          <p><span>Sales</span><a href={`mailto:${SITE.email}`}>{SITE.email}</a> | <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
-          <p><span>Service &amp; support</span><a href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a> | <a href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p>
-          <p><span>Careers</span><a href={`mailto:${SITE.careersEmail}`}>{SITE.careersEmail}</a></p>
+          <b>{f.contact}</b>
+          <p><span>{f.sales}</span><a translate="no" href={`mailto:${SITE.email}`}>{SITE.email}</a><span className="sep"> | </span><a translate="no" href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
+          <p><span>{f.service}</span><a translate="no" href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a><span className="sep"> | </span><a translate="no" href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p>
+          <p><span>{f.careers}</span><a translate="no" href={`mailto:${SITE.careersEmail}`}>{SITE.careersEmail}</a></p>
         </div>
       </div>
       <div className="s-foot-bar">
-        <span>© {new Date().getFullYear()} {SITE.name} | All rights reserved.</span>
-        <span className="links"><Link href="/privacy">Privacy &amp; Cookies</Link><CookieSettingsLink /><a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+        <span>© {new Date().getFullYear()} <span translate="no">{SITE.name}</span> | {f.rights}</span>
+        <span className="links"><Link href={lp(lang, "/privacy")}>{f.privacy}</Link><CookieSettingsLink /><a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">{f.linkedin}</a></span>
       </div>
     </footer>
   );

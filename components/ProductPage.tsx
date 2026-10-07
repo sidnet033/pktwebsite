@@ -2,7 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
-import { PRODUCTS, type Product } from "@/lib/site";
+import { lp, type Lang } from "@/lib/i18n";
+import { getDict } from "@/lib/i18n/dict";
+import { getProducts } from "@/lib/products";
+import type { Product } from "@/lib/site";
 import { Carousel, type Slide } from "./Carousel";
 import { PageHead } from "./Chrome";
 
@@ -21,13 +24,14 @@ export function productSlides(p: Product): Slide[] {
 }
 
 /** Photo cards linking to each product page ("Get to know our portfolio"). */
-export function PortfolioCards({ items = PRODUCTS }: { items?: Product[] }) {
+export function PortfolioCards({ lang, items }: { lang: Lang; items?: Product[] }) {
+  const list = items ?? getProducts(lang);
   return (
-    <div className={`pf-cards n${items.length}`}>
-      {items.map((p) => {
+    <div className={`pf-cards n${list.length}`}>
+      {list.map((p) => {
         const img = productSlides(p)[0];
         return (
-          <Link key={p.slug} href={`/${p.slug}`} className="pf-card">
+          <Link key={p.slug} href={lp(lang, `/${p.slug}`)} className="pf-card">
             <div className="pf-img">{img && <Image src={img.src} alt="" fill sizes="(max-width: 900px) 100vw, 25vw" />}</div>
             <h3>{p.name}</h3>
             <span>{p.tileSpec}</span>
@@ -38,23 +42,24 @@ export function PortfolioCards({ items = PRODUCTS }: { items?: Product[] }) {
   );
 }
 
-export function ProductPage({ p }: { p: Product }) {
+export function ProductPage({ p, lang }: { p: Product; lang: Lang }) {
+  const t = getDict(lang).pages.product;
   const slides = productSlides(p);
   return (
     <>
-      <PageHead label={<><Link href="/">Offerings</Link> / {p.name}</>} title={p.name} lead={p.heroTitle}>
+      <PageHead label={<><Link href={lp(lang, "/")}>{t.offerings}</Link> / {p.name}</>} title={p.name} lead={p.heroTitle}>
         <p className="ph-sub">{p.heroText}</p>
       </PageHead>
       <section className="ef-sec pp-split">
         {slides.length ? (
-          <Carousel slides={slides} intervalMs={5000} className="box" label={`${p.name} photos`} />
+          <Carousel slides={slides} intervalMs={5000} className="box" label={`${p.name} ${t.photos}`} />
         ) : (
-          <div className="car box empty" role="img" aria-label={`${p.name} photos coming soon`}>
-            <span>Photos coming soon</span>
+          <div className="car box empty" role="img" aria-label={`${p.name}: ${t.soon}`}>
+            <span>{t.soon}</span>
           </div>
         )}
         <div className="pp-glance">
-          <h2 className="ef-h2">At a glance</h2>
+          <h2 className="ef-h2">{t.glance}</h2>
           <dl className="dl">
             {p.glance.map(([k, v]) => (<div key={k} className="dlr"><dt>{k}</dt><dd>{v}</dd></div>))}
           </dl>
@@ -62,16 +67,17 @@ export function ProductPage({ p }: { p: Product }) {
       </section>
       {p.uses && (
         <section className="ef-sec muted">
-          <h2 className="ef-h2">Where they are used</h2>
+          <h2 className="ef-h2">{t.uses}</h2>
           <div className="ef-cards">
-            {p.uses.map(([h, t], i) => (<div key={h} className="ef-card"><span className="ef-n">{String(i + 1).padStart(2, "0")}</span><h3>{h}</h3><p>{t}</p></div>))}
+            {p.uses.map(([h, text], i) => (<div key={h} className="ef-card"><span className="ef-n">{String(i + 1).padStart(2, "0")}</span><h3>{h}</h3><p>{text}</p></div>))}
           </div>
         </section>
       )}
       <section className="ef-sec">
-        <h2 className="ef-h2">Other offerings</h2>
-        <PortfolioCards items={PRODUCTS.filter((x) => x.slug !== p.slug)} />
+        <h2 className="ef-h2">{t.others}</h2>
+        <PortfolioCards lang={lang} items={getProducts(lang).filter((x) => x.slug !== p.slug)} />
       </section>
     </>
   );
 }
+

@@ -13,7 +13,8 @@ const HOME_SLIDES: Slide[] = [
   { src: "/hero/4.jpg", alt: "Containerised battery storage unit" },
 ];
 
-export function Carousel({ slides = HOME_SLIDES, intervalMs = 3000, className = "", label = "Pai Kane products" }: { slides?: Slide[]; intervalMs?: number; className?: string; label?: string }) {
+export function Carousel({ slides: given = HOME_SLIDES, alts, intervalMs = 3000, className = "", label = "Pai Kane" }: { slides?: Slide[]; alts?: string[]; intervalMs?: number; className?: string; label?: string }) {
+  const slides = alts ? given.map((s, i) => ({ ...s, alt: alts[i] ?? s.alt })) : given;
   const [cur, setCur] = useState(0);
   const [prev, setPrev] = useState(-1);
   const n = slides.length;

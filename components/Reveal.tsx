@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useLayoutEffect } from "react";
+import { splitPath } from "@/lib/i18n";
 
 // Fade-in of text, cards and photos. Without JavaScript everything simply shows.
 // Like efacec.com, this runs even when the device has "Reduce motion" switched on.
@@ -120,7 +121,7 @@ export function Reveal() {
   // Layout effect: items are hidden before the browser paints, so nothing flashes before fading in.
   useLayoutEffect(() => {
     const html = document.documentElement;
-    const cleanup = path === "/" ? scrollLinked() : timedOnView();
+    const cleanup = splitPath(path).path === "/" ? scrollLinked() : timedOnView(); // "/" and "/pt" are the home page
     html.classList.remove("rv-wait"); // set in <head> on first load; items now handle their own fade
     return cleanup;
   }, [path]);
