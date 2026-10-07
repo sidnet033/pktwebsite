@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PRODUCTS, SITE } from "@/lib/site";
 import { CookieSettingsLink } from "./CookieConsent";
 import { NavLinks } from "./NavLinks";
+import { NavShell } from "./NavShell";
 import { QuoteButton } from "./QuoteDialog";
 
 export function Header() {
@@ -13,10 +14,7 @@ export function Header() {
         <Image src="/logo.png" alt="" width={640} height={557} priority />
         <span>{SITE.name}</span>
       </Link>
-      <nav aria-label="Main">
-        <NavLinks />
-        <QuoteButton />
-      </nav>
+      <NavShell links={<NavLinks />} quote={<QuoteButton />} />
     </header>
   );
 }
@@ -37,8 +35,8 @@ export function Footer() {
         <div><b>Company</b><Link href="/about">About Us</Link><Link href="/certifications">Certifications</Link><Link href="/contacts">Contacts</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com ↗</a></div>
         <div className="fc">
           <b>Contact</b>
-          <p><span>Sales</span><a href={`mailto:${SITE.email}`}>{SITE.email}</a> | <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
-          <p><span>Service &amp; support</span><a href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a> | <a href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p>
+          <p><span>Sales</span><a href={`mailto:${SITE.email}`}>{SITE.email}</a><span className="sep"> | </span><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>
+          <p><span>Service &amp; support</span><a href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a><span className="sep"> | </span><a href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p>
           <p><span>Careers</span><a href={`mailto:${SITE.careersEmail}`}>{SITE.careersEmail}</a></p>
         </div>
       </div>

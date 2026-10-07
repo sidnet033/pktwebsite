@@ -16,8 +16,8 @@ export default function Contacts() {
           <p className="ph-lead">Want to know more? Fill in the form and our team will reply within one working day.</p>
           <a className="ef-link" href="#where">Where we are <span aria-hidden>↓</span></a>
           <div className="ct-direct">
-            <div><h3>Sales</h3><p><a href={`mailto:${SITE.email}`}>{SITE.email}</a> | <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p></div>
-            <div><h3>Service &amp; support</h3><p><a href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a> | <a href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p></div>
+            <div><h3>Sales</h3><p><a href={`mailto:${SITE.email}`}>{SITE.email}</a><span className="sep"> | </span><a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p></div>
+            <div><h3>Service &amp; support</h3><p><a href={`mailto:${SITE.serviceEmail}`}>{SITE.serviceEmail}</a><span className="sep"> | </span><a href={`tel:${SITE.servicePhoneHref}`}>{SITE.servicePhone}</a></p></div>
             <div><h3>Careers</h3><p><a href={`mailto:${SITE.careersEmail}`}>{SITE.careersEmail}</a></p></div>
           </div>
         </div>

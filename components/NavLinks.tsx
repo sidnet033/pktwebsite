@@ -42,7 +42,7 @@ export function NavLinks() {
   return (
     <>
       <Item href="/" label="Home" path={path} />
-      <div className="dd" ref={wrap} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <div className="dd" ref={wrap} onPointerEnter={(e) => e.pointerType === "mouse" && setOpen(true)} onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(false)}>
         <button type="button" className={`dd-btn ${onOffering ? "active" : ""}`} aria-expanded={open} aria-haspopup="true" onClick={() => setOpen((o) => !o)}>
           Offerings <span aria-hidden>▾</span>
         </button>
