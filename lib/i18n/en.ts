@@ -121,7 +121,32 @@ export const en = {
       certNo: "Certificate No.",
       imgAlt: "CE certificate: {name}, No. {no}",
       indianTitle: "Indian Certifications",
-      indianIntro: "Certificates will be added here soon.",
+      indianIntro: "Issued to Pai Kane Transformers LLP for our factory in Tuem, North Goa.",
+      imgAltIndian: "Certificate: {name}",
+      openPdf: "Open the full document (PDF)",
+      indian: [
+        {
+          name: "ISO 9001:2015 Quality Management System",
+          note: "Issued by TÜV SÜD South Asia Pvt. Ltd. Scope: design, manufacture and service of power distribution transformers, compact substations and automatic voltage regulators.",
+          ref: "Certificate Registration No. 99 100 25680",
+          valid: "Valid until 2 September 2029",
+          extra: "Valid from 3 September 2026. Subject to successful annual periodic audits.",
+        },
+        {
+          name: "BIS Licence: IS 1180 (Part 1): 2014",
+          note: "Licence to use the Standard Mark of the Bureau of Indian Standards, for oil immersed distribution transformers. Covered under the licence: indoor type oil immersed distribution transformer up to and including 315 kVA, 11 kV, 3 phase, sealed, copper winding, CRGO core, energy efficiency level 1.",
+          ref: "Licence No. CM/L-6800152915 · Letter of grant dated 6 October 2025",
+          valid: "Operative from 9 May 2025",
+          extra: "First valid to 8 May 2026. Extended by the renewal endorsement.",
+        },
+        {
+          name: "BIS Licence renewal: Endorsement No. 2",
+          note: "Attachment to Licence No. CM/L-6800152915, dated 7 March 2026. Extends the validity of the licence by one year. Other terms and conditions of the licence remain the same.",
+          ref: "Licence No. CM/L-6800152915",
+          valid: "Valid until 8 May 2027",
+          extra: "",
+        },
+      ],
     },
     contacts: {
       title: "Contacts",

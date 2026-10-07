@@ -122,7 +122,32 @@ export const pt: Dict = {
       certNo: "Certificado n.º",
       imgAlt: "Certificado CE: {name}, n.º {no}",
       indianTitle: "Certificações Indianas",
-      indianIntro: "Os certificados serão adicionados aqui em breve.",
+      indianIntro: "Emitidos à Pai Kane Transformers LLP para a nossa fábrica em Tuem, North Goa.",
+      imgAltIndian: "Certificado: {name}",
+      openPdf: "Abrir o documento completo (PDF)",
+      indian: [
+        {
+          name: "Sistema de Gestão da Qualidade ISO 9001:2015",
+          note: "Emitido pela TÜV SÜD South Asia Pvt. Ltd. Âmbito: conceção, fabrico e assistência de transformadores de distribuição de energia, postos de transformação compactos e reguladores automáticos de tensão.",
+          ref: "Certificado de registo n.º 99 100 25680",
+          valid: "Válido até 2 de setembro de 2029",
+          extra: "Válido desde 3 de setembro de 2026. Sujeito à conclusão favorável das auditorias periódicas anuais.",
+        },
+        {
+          name: "Licença BIS: IS 1180 (Parte 1): 2014",
+          note: "Licença para utilização da Marca Padrão do Bureau of Indian Standards, para transformadores de distribuição imersos em óleo. Abrangido pela licença: transformador de distribuição imerso em óleo, de tipo interior, até 315 kVA inclusive, 11 kV, trifásico, selado, enrolamentos de cobre, núcleo CRGO, nível de eficiência energética 1.",
+          ref: "Licença n.º CM/L-6800152915 · Carta de concessão de 6 de outubro de 2025",
+          valid: "Em vigor desde 9 de maio de 2025",
+          extra: "Inicialmente válida até 8 de maio de 2026. Prorrogada pelo averbamento de renovação.",
+        },
+        {
+          name: "Renovação da Licença BIS: Averbamento n.º 2",
+          note: "Anexo à Licença n.º CM/L-6800152915, de 7 de março de 2026. Prorroga a validade da licença por um ano. Os restantes termos e condições da licença mantêm-se.",
+          ref: "Licença n.º CM/L-6800152915",
+          valid: "Válida até 8 de maio de 2027",
+          extra: "",
+        },
+      ],
     },
     contacts: {
       title: "Contactos",
