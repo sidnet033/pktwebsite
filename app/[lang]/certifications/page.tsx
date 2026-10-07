@@ -18,6 +18,13 @@ const CE = [
   { file: "ce-lv-switchboard.png", no: "4560-CI-32026" },
 ];
 
+// Indian certificates: thumbnail (first page) and the full PDF, in the same order as the dictionary entries.
+const INDIAN = [
+  { file: "pkt-iso-9001-2015" },
+  { file: "pkt-bis-licence-grant" },
+  { file: "pkt-bis-licence-renewal" },
+];
+
 export default async function Certifications({ params }: Props) {
   const lang = await getLang(params);
   const t = getDict(lang).pages.certs;
@@ -45,6 +52,21 @@ export default async function Certifications({ params }: Props) {
       <section className="s-sec grey cert-sec">
         <h2 className="s-h">{t.indianTitle}</h2>
         <p className="mut cert-intro">{t.indianIntro}</p>
+        <div className="certs">
+          {INDIAN.map((c, i) => {
+            const it = t.indian[i];
+            return (
+              <a key={c.file} className="cert" href={`/certs/${c.file}.pdf`} target="_blank" rel="noopener noreferrer" title={t.openPdf}>
+                <Image src={`/certs/${c.file}.jpg`} alt={fill(t.imgAltIndian, { name: it.name })} width={1240} height={1754} sizes="(max-width: 900px) 100vw, 33vw" />
+                <b>{it.name}</b>
+                <small>{it.note}</small>
+                <small>{it.ref}</small>
+                <small className="cert-valid">{it.valid}</small>
+                {it.extra && <small>{it.extra}</small>}
+              </a>
+            );
+          })}
+        </div>
       </section>
     </>
   );
