@@ -33,7 +33,8 @@ export function Footer({ lang }: { lang: Lang }) {
             <Image src="/logo.png" alt="" width={640} height={557} />
             <b translate="no">{SITE.name}</b>
           </Link>
-          <p translate="no">{SITE.address}<br />{f.gstin}: {SITE.gstin}</p>
+          <p><span className="lbl">{f.registered}</span><span translate="no">{SITE.address}<br />{f.gstin}: {SITE.gstin}</span></p>
+          <p><span className="lbl">{f.factory}</span><span translate="no">{SITE.factoryAddress}</span></p>
           <a className="map-btn" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">{f.maps} <span aria-hidden>↗</span></a>
         </div>
         <div><b>{f.offerings}</b>{getProducts(lang).map((p) => <Link key={p.slug} href={lp(lang, `/${p.slug}`)}>{p.name}</Link>)}</div>

@@ -40,9 +40,13 @@ export default async function Contacts({ params }: Props) {
           <div className="loc-cards">
             <div className="loc">
               <b>{t.factory}</b>
-              <p translate="no">{SITE.name}<br />{SITE.address}</p>
+              <p translate="no">{SITE.name}<br />{SITE.factoryAddress}</p>
               <p>{t.tel} <a translate="no" href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a><br />{t.mail} <a translate="no" href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
               <a className="pill line sm" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">{t.maps}</a>
+            </div>
+            <div className="loc">
+              <b>{t.registered}</b>
+              <p translate="no">{SITE.name}<br />{SITE.address}<br />GSTIN: {SITE.gstin}</p>
             </div>
           </div>
         </div>
