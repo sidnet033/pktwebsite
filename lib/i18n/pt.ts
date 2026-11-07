@@ -3,9 +3,9 @@ import type { Dict } from "./en";
 // Portuguese (Portugal). Same shape as en.ts. Names of people, email addresses, phone numbers and the company name stay as they are.
 export const pt: Dict = {
   ui: {
-    nav: { main: "Principal", home: "Início", offerings: "Soluções", about: "Sobre Nós", certifications: "Certificações", contacts: "Contactos", quote: "Pedir orçamento", openMenu: "Abrir menu", closeMenu: "Fechar menu", language: "Idioma" },
+    nav: { main: "Principal", home: "Início", offerings: "Soluções", about: "Sobre Nós", certifications: "Certificações", downloads: "Downloads", contacts: "Contactos", quote: "Pedir orçamento", openMenu: "Abrir menu", closeMenu: "Fechar menu", language: "Idioma" },
     offeringItems: { transformers: "Transformadores", "compact-substations": "Postos de Transformação Compactos (CSS)", "lv-switchboards": "Quadros de Baixa Tensão", avrs: "Reguladores de Tensão (AVR)" },
-    footer: { registered: "Sede social", factory: "Fábrica", offerings: "Soluções", company: "Empresa", about: "Sobre Nós", certifications: "Certificações", contacts: "Contactos", contact: "Contacto", sales: "Vendas", service: "Assistência e suporte", careers: "Carreiras", gstin: "GSTIN", maps: "Ver no Google Maps", rights: "Todos os direitos reservados.", privacy: "Privacidade e Cookies", cookieSettings: "Definições de cookies", linkedin: "LinkedIn" },
+    footer: { registered: "Sede social", factory: "Fábrica", offerings: "Soluções", company: "Empresa", about: "Sobre Nós", certifications: "Certificações", downloads: "Downloads", contacts: "Contactos", contact: "Contacto", sales: "Vendas", service: "Assistência e suporte", careers: "Carreiras", gstin: "GSTIN", maps: "Ver no Google Maps", rights: "Todos os direitos reservados.", privacy: "Privacidade e Cookies", cookieSettings: "Definições de cookies", linkedin: "LinkedIn" },
     cookie: {
       label: "Preferências de cookies",
       text: "Utilizamos cookies para perceber como os visitantes utilizam este site, de modo a podermos melhorá-lo. Não são utilizados cookies publicitários. Pode alterar a sua escolha a qualquer momento em «Definições de cookies», no rodapé.",
@@ -59,6 +59,8 @@ export const pt: Dict = {
       about: "Sobre Nós",
       certifications: "Certificações",
       contacts: "Contactos",
+      downloads: "Downloads",
+      downloadsDescription: "Transfira a brochura e o perfil da empresa da Pai Kane Transformers (PDF).",
       contactsDescription: "Contacte a Pai Kane Transformers LLP: vendas, assistência e a nossa fábrica em Tuem, North Goa.",
       privacy: "Privacidade e Cookies",
       privacyDescription: "Como a Pai Kane Transformers LLP trata os dados pessoais e os cookies neste site.",
@@ -165,6 +167,17 @@ export const pt: Dict = {
       tel: "Tel.:",
       mail: "E-mail:",
       maps: "Google Maps ↗",
+    },
+    downloads: {
+      title: "Downloads",
+      lead: "A nossa brochura e o perfil da empresa, para transferir gratuitamente.",
+      download: "Transferir PDF",
+      open: "Abrir num novo separador",
+      coverAlt: "Capa de {name}",
+      items: [
+        { name: "Brochura da Empresa - Nov'26", desc: "Os nossos transformadores e postos de transformação compactos: gama técnica, principais características, aplicações e normas.", note: "PDF, em inglês" },
+        { name: "Perfil da Empresa - Nov'26", desc: "Sobre o Pai Kane Group e a Pai Kane Transformers: instalações, capacidades, produtos principais e certificações.", note: "PDF, em inglês" },
+      ],
     },
     privacy: { back: "Voltar ao início →" },
   },

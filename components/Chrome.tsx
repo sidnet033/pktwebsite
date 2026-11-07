@@ -38,7 +38,7 @@ export function Footer({ lang }: { lang: Lang }) {
           <a className="map-btn" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">{f.maps} <span aria-hidden>↗</span></a>
         </div>
         <div><b>{f.offerings}</b>{getProducts(lang).map((p) => <Link key={p.slug} href={lp(lang, `/${p.slug}`)}>{p.name}</Link>)}</div>
-        <div><b>{f.company}</b><Link href={lp(lang, "/about")}>{f.about}</Link><Link href={lp(lang, "/certifications")}>{f.certifications}</Link><Link href={lp(lang, "/contacts")}>{f.contacts}</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com ↗</a></div>
+        <div><b>{f.company}</b><Link href={lp(lang, "/about")}>{f.about}</Link><Link href={lp(lang, "/certifications")}>{f.certifications}</Link><Link href={lp(lang, "/downloads")}>{f.downloads}</Link><Link href={lp(lang, "/contacts")}>{f.contacts}</Link><a href={SITE.groupUrl} target="_blank" rel="noopener noreferrer">paikane.com ↗</a></div>
         <div className="fc">
           <b>{f.contact}</b>
           <p><span>{f.sales}</span><a translate="no" href={`mailto:${SITE.email}`}>{SITE.email}</a><span className="sep"> | </span><a translate="no" href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a></p>

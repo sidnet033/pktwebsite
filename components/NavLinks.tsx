@@ -57,6 +57,7 @@ export function NavLinks() {
       </div>
       <Item href="/about" label={ui.nav.about} path={path} lang={lang} />
       <Item href="/certifications" label={ui.nav.certifications} path={path} lang={lang} />
+      <Item href="/downloads" label={ui.nav.downloads} path={path} lang={lang} />
       <Item href="/contacts" label={ui.nav.contacts} path={path} lang={lang} />
     </>
   );

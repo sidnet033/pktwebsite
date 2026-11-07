@@ -2,9 +2,9 @@
 // Names of people, email addresses, phone numbers and the company name are not here on purpose: they never change.
 export const en = {
   ui: {
-    nav: { main: "Main", home: "Home", offerings: "Offerings", about: "About Us", certifications: "Certifications", contacts: "Contacts", quote: "Request a quote", openMenu: "Open menu", closeMenu: "Close menu", language: "Language" },
+    nav: { main: "Main", home: "Home", offerings: "Offerings", about: "About Us", certifications: "Certifications", downloads: "Downloads", contacts: "Contacts", quote: "Request a quote", openMenu: "Open menu", closeMenu: "Close menu", language: "Language" },
     offeringItems: { transformers: "Transformers", "compact-substations": "Compact Substations (CSS)", "lv-switchboards": "LV Switchboards", avrs: "Voltage Regulators (AVR)" } as Record<string, string>,
-    footer: { registered: "Registered office", factory: "Factory", offerings: "Offerings", company: "Company", about: "About Us", certifications: "Certifications", contacts: "Contacts", contact: "Contact", sales: "Sales", service: "Service & support", careers: "Careers", gstin: "GSTIN", maps: "View on Google Maps", rights: "All rights reserved.", privacy: "Privacy & Cookies", cookieSettings: "Cookie settings", linkedin: "LinkedIn" },
+    footer: { registered: "Registered office", factory: "Factory", offerings: "Offerings", company: "Company", about: "About Us", certifications: "Certifications", downloads: "Downloads", contacts: "Contacts", contact: "Contact", sales: "Sales", service: "Service & support", careers: "Careers", gstin: "GSTIN", maps: "View on Google Maps", rights: "All rights reserved.", privacy: "Privacy & Cookies", cookieSettings: "Cookie settings", linkedin: "LinkedIn" },
     cookie: {
       label: "Cookie preferences",
       text: "We use cookies to understand how visitors use this website, so we can improve it. No advertising cookies are used. You can change your choice any time from “Cookie settings” in the footer.",
@@ -58,6 +58,8 @@ export const en = {
       about: "About",
       certifications: "Certifications",
       contacts: "Contacts",
+      downloads: "Downloads",
+      downloadsDescription: "Download the Pai Kane Transformers company brochure and company profile (PDF).",
       contactsDescription: "Contact Pai Kane Transformers LLP: sales, service and our factory in Tuem, North Goa.",
       privacy: "Privacy & Cookies",
       privacyDescription: "How Pai Kane Transformers LLP handles personal information and cookies on this website.",
@@ -164,6 +166,17 @@ export const en = {
       tel: "T:",
       mail: "E:",
       maps: "Google Maps ↗",
+    },
+    downloads: {
+      title: "Downloads",
+      lead: "Our brochure and company profile, free to download.",
+      download: "Download PDF",
+      open: "Open in a new tab",
+      coverAlt: "Cover of {name}",
+      items: [
+        { name: "Company Brochure - Nov'26", desc: "Our transformers and compact substations: technical range, key features, applications and standards.", note: "PDF, in English" },
+        { name: "Company Profile - Nov'26", desc: "About the Pai Kane Group and Pai Kane Transformers: facilities, capabilities, focus products and certifications.", note: "PDF, in English" },
+      ],
     },
     privacy: { back: "Back to home →" },
   },
