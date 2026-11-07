@@ -14,7 +14,7 @@ import { splitPath } from "@/lib/i18n";
 const TARGETS = [
   "main h1", "main h2", "main h3", "main p", "main li", "main .dlr", "main .ef-link", "main .pill",
   "main .stats>div", "main .pf-card", "main .ef-card", "main .loc", "main .person", "main .cert", "main .qf>*",
-  "main .car", "main .fam-img", "main .ph-lab", "main .ct-panel",
+  "main .car", "main .fam-img", "main .ph-lab", "main .ct-panel", "main .dcard",
   ".s-foot-cols>div", ".s-foot-bar",
 ].join(",");
 

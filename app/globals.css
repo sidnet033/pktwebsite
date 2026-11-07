@@ -333,7 +333,7 @@ dialog.promo:focus{outline:none}
 
 /* ---------- phones and tablets: menu button, bigger tap targets, 16px form text ---------- */
 .s-top nav a,.dd-btn{white-space:nowrap}
-@media (max-width:1240px){
+@media (max-width:1299px){
   .s-top{gap:12px;padding-block:10px}
   .s-top nav{gap:12px}
   .s-burger{display:grid;align-content:center;justify-items:center;gap:5px;width:44px;height:44px;border:1px solid var(--line);border-radius:500px;background:#fff;cursor:pointer;padding:0}
@@ -403,3 +403,13 @@ h1,h2,h3{overflow-wrap:break-word}
 /* footer: registered office and factory addresses */
 .s-foot .fb p+p{margin-top:12px}
 .s-foot .fb p .lbl{display:block;color:var(--ink);font-size:.85rem}
+
+/* ---------- downloads ---------- */
+.dgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.dcard{display:flex;flex-direction:column;gap:14px}
+.dthumb{position:relative;display:block;aspect-ratio:4/3;background:var(--grey);border-radius:12px;overflow:hidden}
+.dthumb img{position:absolute;inset:20px;width:calc(100% - 40px);height:calc(100% - 40px);object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,0,0,.18));transition:transform .5s ease}
+.dthumb:hover img{transform:scale(1.03)}
+.dname{font-weight:500;font-size:clamp(1.4rem,2.2vw,1.9rem);line-height:1.1;letter-spacing:-.03em}
+.dmeta{color:var(--soft);font-size:.85rem}
+@media (max-width:900px){.dgrid{grid-template-columns:1fr}}

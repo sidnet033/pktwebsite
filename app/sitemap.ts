@@ -5,7 +5,7 @@ import { PRODUCTS, SITE } from "@/lib/site";
 // Served at /sitemap.xml. Every page is listed in English and Portuguese, each pointing to the other (hreflang).
 // Add new pages to this list when you create them.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/about", "/certifications", "/contacts", "/privacy", ...PRODUCTS.map((p) => `/${p.slug}`)];
+  const pages = ["", "/about", "/certifications", "/downloads", "/contacts", "/privacy", ...PRODUCTS.map((p) => `/${p.slug}`)];
   return pages.flatMap((path) =>
     (["en", "pt"] as const).map((lang) => ({
       url: `${SITE.url}${lp(lang, path || "/") === "/" ? "" : lp(lang, path || "/")}`,
