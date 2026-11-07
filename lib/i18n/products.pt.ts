@@ -6,12 +6,12 @@ type PtProduct = Pick<Product, "name" | "tileSpec" | "heroTitle" | "heroText" | 
 export const PRODUCTS_PT: Record<string, PtProduct> = {
   transformers: {
     name: "Transformadores",
-    tileSpec: "Em óleo, até 20 MVA e 33 kV, para renováveis e distribuição",
+    tileSpec: "Em óleo, até 5 MVA e 33 kV, para renováveis e distribuição",
     heroTitle: "Transformadores para renováveis e distribuição.",
-    heroText: "Em óleo, até 20 MVA e 33 kV, desenvolvidos de acordo com a sua especificação.",
+    heroText: "Em óleo, até 5 MVA e 33 kV atualmente (20 MVA previstos), desenvolvidos de acordo com a sua especificação.",
     captions: { "1.jpg": "BESS de 2,7 MVA", "2.jpg": "IDT ECO TIER2 de 1 MVA (perdas reduzidas)", "3.jpg": "Nave de produção da fábrica" },
     glance: [
-      ["Potência", "Até 20 MVA"],
+      ["Potência", "Até 5 MVA atualmente, 20 MVA previstos"],
       ["Classe de tensão", "Até 33 kV"],
       ["Arrefecimento", "Em óleo"],
       ["Aplicações", "Centrais solares, parques eólicos, armazenamento de energia em baterias, redes de distribuição"],

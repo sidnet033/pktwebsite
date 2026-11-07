@@ -37,14 +37,14 @@ export const PRODUCTS: Product[] = [
   {
     slug: "transformers",
     name: "Transformers",
-    tileSpec: "Oil cooled, up to 20 MVA and 33 kV, for renewables and distribution",
+    tileSpec: "Oil cooled, up to 5 MVA and 33 kV, for renewables and distribution",
     heroTitle: "Transformers for renewables and distribution.",
-    heroText: "Oil cooled, up to 20 MVA and 33 kV, engineered to your specification.",
+    heroText: "Oil cooled, up to 5 MVA and 33 kV today (20 MVA planned), engineered to your specification.",
     photo: "Photo: oil cooled transformer, solar plant",
     tone: "",
     captions: { "1.jpg": "2.7MVA BESS", "2.jpg": "1MVA IDT ECO TIER2 LOSSES", "3.jpg": "Factory Shopfloor" },
     glance: [
-      ["Rating", "Up to 20 MVA"],
+      ["Rating", "Up to 5 MVA today, 20 MVA planned"],
       ["Voltage class", "Up to 33 kV"],
       ["Cooling", "Oil cooled"],
       ["Applications", "Solar plants, wind farms, battery energy storage, distribution networks"],

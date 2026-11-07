@@ -68,7 +68,7 @@ export const en = {
       title: "Power equipment, engineered to your specification.",
       lead: "Transformers, compact substations, LV switchboards and voltage regulators, made in Goa.",
       cta: "Get to know our portfolio",
-      stats: [["1971", "Pai Kane Group founded in Goa"], ["86+", "Countries served by the group"], ["20 MVA", "Transformers up to 33 kV"], ["6,300 A", "LV switchboards on ABB ArTu K"]],
+      stats: [["1971", "Pai Kane Group founded in Goa"], ["86+", "Countries served by the group"], ["5 MVA", "Transformers up to 33 kV (20 MVA planned)"], ["6,300 A", "LV switchboards on ABB ArTu K"]],
       portfolio: "Get to know our portfolio",
       statsLabel: "Key figures",
       explore: "Explore {name}",

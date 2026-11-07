@@ -69,7 +69,7 @@ export const pt: Dict = {
       title: "Equipamentos elétricos, desenvolvidos de acordo com a sua especificação.",
       lead: "Transformadores, postos de transformação compactos, quadros de baixa tensão e reguladores de tensão, fabricados em Goa.",
       cta: "Conheça o nosso portefólio",
-      stats: [["1971", "Pai Kane Group fundado em Goa"], ["86+", "Países servidos pelo grupo"], ["20 MVA", "Transformadores até 33 kV"], ["6300 A", "Quadros de BT em ABB ArTu K"]],
+      stats: [["1971", "Pai Kane Group fundado em Goa"], ["86+", "Países servidos pelo grupo"], ["5 MVA", "Transformadores até 33 kV (20 MVA previstos)"], ["6300 A", "Quadros de BT em ABB ArTu K"]],
       portfolio: "Conheça o nosso portefólio",
       statsLabel: "Números principais",
       explore: "Explorar {name}",
